@@ -2,102 +2,63 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import Icon from 'react-native-vector-icons/Octicons';
+import { colors } from './src/styles';
 
 import { HomeScreen } from './src/home';
 import { SettingsScreen } from './src/settings';
+import { GamesScreen } from './src/games';
+
+export enum TabNames {
+  HOME = 'Börsjakten',
+  SETTINGS = 'Inställningar',
+  GAMES = 'Spel',
+}
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+  const isAndroid = Platform.OS === 'android';
+
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Inställningar" component={SettingsScreen} />
-      </Tab.Navigator>
-      {/* <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
-          <Header />
+      <Tab.Navigator
+        initialRouteName={TabNames.HOME}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName = '';
+            let iconSize = size;
 
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this screen and then come back to see your
-                edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>Read the docs to discover what to do next:</Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView> */}
+            if (route.name === TabNames.HOME) {
+              iconName = 'rocket';
+              iconSize = 24;
+            } else if (route.name === TabNames.SETTINGS) {
+              iconName = 'person';
+              iconSize = 24;
+            } else if (route.name === TabNames.GAMES) {
+              iconName = 'graph';
+              iconSize = 24;
+            }
+
+            return <Icon name={iconName} size={iconSize} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: colors.aqua,
+          inactiveTintColor: colors.grey,
+          tabStyle: isAndroid ? { paddingTop: 10, marginBottom: 10 } : { marginTop: 10 },
+          labelStyle: { fontSize: 10, marginTop: isAndroid ? 5 : 0 },
+          style: isAndroid ? { height: '8%' } : {},
+        }}
+      >
+        <Tab.Screen name={TabNames.GAMES} component={GamesScreen} />
+        <Tab.Screen name={TabNames.HOME} component={HomeScreen} />
+        <Tab.Screen name={TabNames.SETTINGS} component={SettingsScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
 
 export default App;

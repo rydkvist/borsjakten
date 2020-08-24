@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, Image, ScrollView, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, ScrollView, StyleSheet, StatusBar, TouchableOpacity, Button, Modal } from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import { colors } from '../../styles';
@@ -11,6 +11,8 @@ type AchievementButtonProps = {
 };
 
 const AchievementButton = ({ variant, direction, onPress = () => {} }: AchievementButtonProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const isHorizontal = direction === ('right' || 'left');
   const isVertical = direction === ('up' || 'down');
   const isCompleted = variant === 'completed';
@@ -27,8 +29,8 @@ const AchievementButton = ({ variant, direction, onPress = () => {} }: Achieveme
     activeStyle: {
       backgroundColor: 'white',
       borderRadius: 50,
-      width: 48,
-      height: 48,
+      width: 46,
+      height: 46,
     },
     centerAlign: {
       justifyContent: 'center',
@@ -38,10 +40,8 @@ const AchievementButton = ({ variant, direction, onPress = () => {} }: Achieveme
       backgroundColor: isCompleted ? colors.lightAqua : colors.sheepGrey,
       width: 20,
       height: 34,
-      marginBottom: isVertical ? -2 : 0,
-      marginTop: isVertical ? -2 : 0,
-      marginRight: isHorizontal ? -2 : 0,
-      marginLeft: isHorizontal ? -2 : 0,
+      marginVertical: isVertical ? -2 : 0,
+      marginHorizontal: isHorizontal ? -2 : 0,
       zIndex: 0,
     },
   });
@@ -49,7 +49,7 @@ const AchievementButton = ({ variant, direction, onPress = () => {} }: Achieveme
   return (
     <>
       <View style={styles.pathView} />
-      <TouchableOpacity style={[styles.buttonStyle, styles.centerAlign]} onPress={onPress}>
+      <TouchableOpacity style={[styles.buttonStyle, styles.centerAlign]} onPress={() => setIsModalOpen(!isModalOpen)}>
         <View style={[isCompleted ? {} : styles.activeStyle, styles.centerAlign]}>
           {variant === 'completed' ? (
             <Icon name="check" size={28} color={colors.white} />
@@ -59,6 +59,17 @@ const AchievementButton = ({ variant, direction, onPress = () => {} }: Achieveme
             <IonIcon name="lock-closed" size={20} color={colors.grey} />
           )}
         </View>
+        <Modal visible={isModalOpen} animationType="slide" statusBarTranslucent={true}>
+          <View style={[{ marginTop: '50%', marginBottom: '50%' }, styles.centerAlign]}>
+            <Text style={{ fontSize: 30 }}>Hej älskling :3</Text>
+          </View>
+          <Button
+            title="Close modal"
+            onPress={() => {
+              setIsModalOpen(!isModalOpen);
+            }}
+          />
+        </Modal>
       </TouchableOpacity>
     </>
   );
