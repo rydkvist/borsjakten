@@ -22,7 +22,7 @@ const App = () => {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="Inställningar" component={SettingsScreen} />
       </Tab.Navigator>
       {/* <StatusBar barStyle="dark-content" />
       <SafeAreaView>

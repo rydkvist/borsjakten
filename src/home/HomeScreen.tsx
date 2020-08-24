@@ -1,11 +1,15 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, StyleSheet, StatusBar } from 'react-native';
-import { ObjectiveButton } from './components';
+import { View, Text, Image, ScrollView, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
+import { AchievementButton } from './components';
 
 const HomeScreen = () => {
   return (
     <ScrollView>
-      <View style={styles.sView}></View>
+      <View style={styles.sView}>
+        <AchievementButton variant="closed" />
+        <AchievementButton variant="active" />
+        <AchievementButton variant="completed" />
+      </View>
     </ScrollView>
   );
 };
@@ -13,7 +17,8 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   sView: {
     flex: 1,
-    justifyContent: 'flex-end',
+    marginTop: '50%',
+    justifyContent: 'center',
     alignItems: 'center',
   },
 });

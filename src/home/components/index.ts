@@ -1,1 +1,1 @@
-export { default as ObjectiveButton } from './ObjectiveButton';
+export { default as AchievementButton } from './AchievementButton';
