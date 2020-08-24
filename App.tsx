@@ -3,7 +3,6 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Platform } from 'react-native';
-
 import Icon from 'react-native-vector-icons/Octicons';
 import { colors } from './src/styles';
 
@@ -32,14 +31,14 @@ const App = () => {
             let iconSize = size;
 
             if (route.name === TabNames.HOME) {
-              iconName = 'rocket';
+              iconName = 'book';
               iconSize = 24;
             } else if (route.name === TabNames.SETTINGS) {
-              iconName = 'person';
-              iconSize = 24;
+              iconName = 'gear';
+              iconSize = 22;
             } else if (route.name === TabNames.GAMES) {
-              iconName = 'graph';
-              iconSize = 24;
+              iconName = 'rocket';
+              iconSize = 22;
             }
 
             return <Icon name={iconName} size={iconSize} color={color} />;
@@ -47,9 +46,11 @@ const App = () => {
         })}
         tabBarOptions={{
           activeTintColor: colors.aqua,
+          activeBackgroundColor: isAndroid ? colors.white05 : colors.white,
           inactiveTintColor: colors.grey,
-          tabStyle: isAndroid ? { paddingTop: 10, marginBottom: 10 } : { marginTop: 10 },
-          labelStyle: { fontSize: 10, marginTop: isAndroid ? 5 : 0 },
+          inactiveBackgroundColor: colors.white,
+          tabStyle: { paddingVertical: isAndroid ? 10 : 0 },
+          labelStyle: { fontSize: 10, marginTop: isAndroid ? 5 : -5 },
           style: isAndroid ? { height: '8%' } : {},
         }}
       >
