@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity, Alert, Platform } from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity, ActivityIndicator, Platform } from 'react-native';
+import { colors } from '../styles';
 
 type WhiteButtonProps = {
   title: string;
@@ -37,6 +38,7 @@ const SettingsScreen = () => {
         <WhiteButton title="Språk" onPress={() => {}} />
         <WhiteButton title="Språk" onPress={() => {}} lastChild={true} />
       </View>
+      {/* <ActivityIndicator size="large" color={colors.aqua} /> */}
     </View>
   );
 };

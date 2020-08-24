@@ -1,14 +1,15 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 import { colors } from './src/styles';
 
 import { HomeScreen } from './src/home';
 import { SettingsScreen } from './src/settings';
 import { GamesScreen } from './src/games';
+import { AgeScreen } from './src/start-page';
 
 export enum TabNames {
   HOME = 'Börsjakten',
@@ -19,13 +20,17 @@ export enum TabNames {
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const isAndroid = Platform.OS === 'android';
 
-  return (
+  return isAuthenticated ? (
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName={TabNames.HOME}
         screenOptions={({ route }) => ({
+          tabBarVisible: isAuthenticated,
+          tabBarTestID: 'test-bottom-tab-navigation',
           tabBarIcon: ({ focused, color, size }) => {
             let iconName = '';
             let iconSize = size;
@@ -59,6 +64,8 @@ const App = () => {
         <Tab.Screen name={TabNames.SETTINGS} component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
+  ) : (
+    <AgeScreen />
   );
 };
 
