@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, Image, ScrollView, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
 
+import Icon from 'react-native-vector-icons/Octicons';
+
 type AchievementButtonProps = {
   variant: 'active' | 'completed' | 'closed';
 };
@@ -29,7 +31,13 @@ const AchievementButton = ({ variant }: AchievementButtonProps) => {
     <TouchableOpacity style={[styles.buttonStyle, styles.centerAlign]} onPress={() => {}}>
       {variant !== 'completed' && (
         <View style={[styles.activeStyle, styles.centerAlign]}>
-          <Text>{variant === 'active' ? 'O' : 'C'}</Text>
+          <Text>
+            {variant === 'active' ? (
+              <Icon name="play" size={24} color="#66BEFC" />
+            ) : (
+              <Icon name="lock" size={20} color="#000" />
+            )}
+          </Text>
         </View>
       )}
     </TouchableOpacity>
