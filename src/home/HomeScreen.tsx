@@ -6,9 +6,16 @@ const HomeScreen = () => {
   return (
     <ScrollView>
       <View style={styles.sView}>
-        <AchievementButton variant="closed" />
-        <AchievementButton variant="active" />
-        <AchievementButton variant="completed" />
+        <AchievementButton variant="closed" direction="up" />
+        <AchievementButton variant="closed" direction="up" />
+        <AchievementButton variant="closed" direction="up" />
+        <AchievementButton variant="closed" direction="up" />
+        <AchievementButton variant="closed" direction="up" />
+        <AchievementButton variant="closed" direction="up" />
+        <AchievementButton variant="closed" direction="up" />
+        <AchievementButton variant="closed" direction="up" />
+        <AchievementButton variant="active" direction="left" />
+        <AchievementButton variant="completed" direction="up" />
       </View>
     </ScrollView>
   );
@@ -20,6 +27,7 @@ const styles = StyleSheet.create({
     marginTop: '50%',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: '10%',
   },
 });
 
