@@ -61,7 +61,7 @@ const AchievementButton = ({ variant, direction, onPress = () => {} }: Achieveme
         </View>
         <Modal visible={isModalOpen} animationType="slide" statusBarTranslucent={true}>
           <View style={[{ marginTop: '50%', marginBottom: '50%' }, styles.centerAlign]}>
-            <Text style={{ fontSize: 30 }}>Hej älskling :3</Text>
+            <Text style={{ fontSize: 30 }}>Hej hej :)</Text>
           </View>
           <Button
             title="Close modal"

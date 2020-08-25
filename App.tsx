@@ -20,7 +20,7 @@ export enum TabNames {
 const Tab = createBottomTabNavigator();
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   const isAndroid = Platform.OS === 'android';
 
