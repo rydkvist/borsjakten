@@ -18,7 +18,7 @@ struct SignInView: View {
                 .resizable()
                 .frame(width: .minButtonSize, height: .minButtonSize, alignment: .center)
             
-            if authModel.user?.uid != nil {
+            if authModel.isAuthed {
                 HStack {
                     Text("Your logged in, log out in the settings page")
                     

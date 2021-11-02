@@ -24,13 +24,14 @@ struct SignUpView: View {
                 .resizable()
                 .frame(width: .minButtonSize, height: .minButtonSize, alignment: .center)
             
-            if authModel.user?.uid != nil {
+            if authModel.isAuthed {
                 HStack {
                     Text("Your logged in, log out in the settings page")
                     
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.green)
                 }
+                
             } else {
                 TextField("E-mail", text: $email, prompt: Text("Email"))
                     .focused($isEmailFieldFocused)

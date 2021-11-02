@@ -39,7 +39,7 @@ class TaskModel: ObservableObject {
     
     public func removeLastTask() {
         withAnimation(.spring()) {
-            self.tasks.removeFirst()
+            _ = self.tasks.removeFirst()
         }
     }
 }

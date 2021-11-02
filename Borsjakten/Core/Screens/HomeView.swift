@@ -20,7 +20,7 @@ struct HomeView: View {
     var body: some View {
         VStack {
             ScrollView(.vertical, showsIndicators: false){
-                ForEach(taskModel.tasks, id: \.id){ task in
+                ForEach(taskModel.tasks, id:\.id){ task in
                     NavigationLink(destination: TaskDetailView(task: task)) {
                         TaskCircle(task: task, direction: getTaskDirection(task.placement))
                     }

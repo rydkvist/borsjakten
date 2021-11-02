@@ -11,7 +11,7 @@ struct SettingsView: View {
                 .resizable()
                 .frame(width: .minButtonSize, height: .minButtonSize, alignment: .center)
             
-            if authModel.user?.uid != nil {
+            if authModel.isAuthed {
                 Button("Logout", action: authModel.onSignOut)
                     .buttonStyle(BorderedButtonStyle())
                     .padding(.top)

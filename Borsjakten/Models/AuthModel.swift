@@ -3,11 +3,20 @@ import SwiftUI
 import FirebaseAuth
 
 class AuthModel: ObservableObject {
-    @Published var user: User?
+    @Published var user: User? {
+        didSet {
+            if user?.uid != nil {
+                self.isAuthed = true
+            } else {
+                self.isAuthed = false
+            }
+        }
+    }
+    @Published var isAuthed: Bool = false
     @Published var isAuthLoading: Bool = false
     @Published var signUpErrorMessage: String = ""
     @Published var signInErrorMessage: String = ""
-    
+   
     @State private var handle: AuthStateDidChangeListenerHandle?
     
     public func onSignUp(email: String, password: String) {
@@ -22,6 +31,7 @@ class AuthModel: ObservableObject {
             
             DispatchQueue.main.async {
                 self.user = user
+                self.sendEmailVerification()
             }
         }
         
@@ -44,6 +54,14 @@ class AuthModel: ObservableObject {
             }
         }
         self.isAuthLoading = false
+    }
+    
+    public func sendEmailVerification() {
+        Auth.auth().currentUser?.sendEmailVerification { error in
+            if let error = error {
+                print("sendEmailVerification error:", error.localizedDescription)
+            }
+        }
     }
     
     private func handleSigningError(handleFor: SigningError, authResult: AuthDataResult?, error: Error?) {
