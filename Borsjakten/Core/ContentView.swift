@@ -5,6 +5,7 @@ struct ContentView: View {
     @StateObject var taskModel = TaskModel()
     @StateObject var authModel = AuthModel()
     @State var selectedTab: Tabs = .home
+    @AppStorage("shouldShowOnboarding") var shouldShowOnboarding: Bool = true
     
     var body: some View {
         NavigationView {
@@ -15,18 +16,6 @@ struct ContentView: View {
                     }
                     .tag(Tabs.home)
                 
-                SignInView()
-                    .tabItem {
-                        Label("Login", systemImage: "person")
-                    }
-                    .tag(Tabs.login)
-                
-                SignUpView()
-                    .tabItem {
-                        Label("Register", systemImage: "pencil.circle")
-                    }
-                    .tag(Tabs.register)
-                
                 SettingsView()
                     .tabItem {
                         Label("Settings", systemImage: "gear")
@@ -34,6 +23,7 @@ struct ContentView: View {
                     .tag(Tabs.settings)
             }
         }
+        .fullScreenCover(isPresented: $shouldShowOnboarding, content: { OnboardingView() })
         .environmentObject(authModel)
         .onAppear(perform: authModel.setAuthState)
         .onDisappear(perform: authModel.removeAuthState)
@@ -48,7 +38,11 @@ enum Tabs: String {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static var authModel: AuthModel = AuthModel()
+    
     static var previews: some View {
-        ContentView()
+        OnboardingView()
+            .preferredColorScheme(.dark)
+            .environmentObject(authModel)
     }
 }

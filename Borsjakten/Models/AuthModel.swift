@@ -2,6 +2,13 @@ import Foundation
 import SwiftUI
 import FirebaseAuth
 
+struct OnboardingCredentials {
+    var email: String = ""
+    var password: String = ""
+    var username: String = ""
+    var displayName: String = ""
+}
+
 class AuthModel: ObservableObject {
     @Published var user: User? {
         didSet {
@@ -16,7 +23,11 @@ class AuthModel: ObservableObject {
     @Published var isAuthLoading: Bool = false
     @Published var signUpErrorMessage: String = ""
     @Published var signInErrorMessage: String = ""
-   
+    
+    @Published var emailErrorMessage: String = ""    
+    @Published var onboardingCredentials: OnboardingCredentials = OnboardingCredentials()
+    
+    @AppStorage("shouldShowOnboarding") var shouldShowOnboarding: Bool = true
     @State private var handle: AuthStateDidChangeListenerHandle?
     
     public func onSignUp(email: String, password: String) {
@@ -54,6 +65,42 @@ class AuthModel: ObservableObject {
             }
         }
         self.isAuthLoading = false
+    }
+    
+    public func updateUser(userName: String, onComplete: @escaping () -> Void?) {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = userName
+        changeRequest?.commitChanges { error in
+            if let error = error {
+                print("updateUser: Something went wrong..", error.localizedDescription)
+            }
+            self.setAuthState()
+            onComplete()
+        }
+    }
+    
+    public func isValidEmail(email: String, onValidCompletion: @escaping () -> Void?) {
+        Auth.auth().fetchSignInMethods(forEmail: email) { signInMethods, error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    self.emailErrorMessage = error.localizedDescription
+                    self.onboardingCredentials.email = ""
+                }
+            }
+            
+            if let _ = signInMethods {
+                DispatchQueue.main.async {
+                    self.emailErrorMessage = "That e-mail is already in used."
+                    self.onboardingCredentials.email = ""
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.onboardingCredentials.email = email
+                    self.emailErrorMessage = ""
+                    onValidCompletion()
+                }
+            }
+        }
     }
     
     public func sendEmailVerification() {
@@ -97,7 +144,10 @@ class AuthModel: ObservableObject {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            DispatchQueue.main.async { self.user = nil }
+            DispatchQueue.main.async {
+                self.user = nil
+                self.shouldShowOnboarding = true
+            }
         } catch let signOutError as NSError {
             print("onSignOut Error signing out: %@", signOutError)
         }
@@ -107,7 +157,12 @@ class AuthModel: ObservableObject {
         handle = Auth.auth().addStateDidChangeListener { auth, user in
             if let user = user {
                 DispatchQueue.main.async {
+                    self.shouldShowOnboarding = false
                     self.user = user
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.shouldShowOnboarding = true
                 }
             }
         }

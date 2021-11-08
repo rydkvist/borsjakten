@@ -3,28 +3,38 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var authModel: AuthModel
     
-    var body: some View {
-        VStack {
-            Text("Settings page")
-
-            Image(systemName: "gear")
-                .resizable()
-                .frame(width: .minButtonSize, height: .minButtonSize, alignment: .center)
-            
-            if authModel.isAuthed {
-                Button("Logout", action: authModel.onSignOut)
-                    .buttonStyle(BorderedButtonStyle())
-                    .padding(.top)
-            } else {
-                Text("You can log out whenever you have signed in with an account")
-            }
-           
+    func getWelcomeText() -> String {
+        var welcomeText: String = "Hey there!"
+        if authModel.isAuthed {
+            let userName = authModel.user?.displayName ?? "BUG"
+            welcomeText = "Hey there \(userName)!"
         }
+        return welcomeText
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Form {
+                Section {
+                    List {
+                        NavigationLink("Change username", destination: UsernameView())
+                        Button("Logout", action: authModel.onSignOut)
+                    }
+                }
+            }
+        }
+        .navigationTitle(getWelcomeText())
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
+    static var authModel: AuthModel = AuthModel()
+    
     static var previews: some View {
-        SettingsView()
+        NavigationView {
+            SettingsView()
+                .environmentObject(authModel)
+        }
+        
     }
 }
