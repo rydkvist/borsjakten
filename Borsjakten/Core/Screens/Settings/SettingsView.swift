@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var authModel: AuthModel
+    @EnvironmentObject private var authVM: AuthViewModel
     
     func getWelcomeText() -> String {
         var welcomeText: String = "Hey there!"
-        if authModel.isAuthed {
-            let userName = authModel.user?.displayName ?? "BUG"
+        if authVM.isAuthed {
+            let userName = authVM.user?.displayName ?? "BUG"
             welcomeText = "Hey there \(userName)!"
         }
         return welcomeText
@@ -18,7 +18,7 @@ struct SettingsView: View {
                 Section {
                     List {
                         NavigationLink("Change username", destination: UsernameView())
-                        Button("Logout", action: authModel.onSignOut)
+                        Button("Logout", action: authVM.onSignOut)
                     }
                 }
             }
@@ -28,12 +28,12 @@ struct SettingsView: View {
 }
 
 struct SettingsView_Previews: PreviewProvider {
-    static var authModel: AuthModel = AuthModel()
+    static var authVM = AuthViewModel()
     
     static var previews: some View {
         NavigationView {
             SettingsView()
-                .environmentObject(authModel)
+                .environmentObject(authVM)
         }
         
     }

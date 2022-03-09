@@ -1,6 +1,6 @@
 import SwiftUI
 
-class TaskModel: ObservableObject {
+class TasksViewModel: ObservableObject {
     @Published var tasks: [TaskItem] = [
         TaskItem(placement: 5, label: "CSN", description: "Här kan du låna", active: false, isCompleted: false),
         TaskItem(placement: 4, label: "Minecraft", description: "Här kan du låna", active: false, isCompleted: false),
@@ -9,7 +9,7 @@ class TaskModel: ObservableObject {
         TaskItem(placement: 1, label: "Börsen", description: "Här kan du låna", active: false, isCompleted: true)
     ]
     
-    public func addTask() {
+    func addTask() {
         let newTaskItem = TaskItem(
             placement: tasks.count + 1,
             label: "Random",

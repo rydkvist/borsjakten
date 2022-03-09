@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var taskModel: TaskModel
+    @EnvironmentObject private var taskModel: TasksViewModel
     
     private func getTaskDirection(_ placement: Int) -> TaskDirection {
         if placement == 1 {
@@ -17,15 +17,24 @@ struct HomeView: View {
         }
     }
     
+    let gridColumns: [GridItem] = [
+        GridItem(.flexible(minimum: .taskButtonSize), spacing: 0, alignment: .center),
+        GridItem(.flexible(minimum: .taskButtonSize), spacing: 0, alignment: .center),
+        GridItem(.flexible(minimum: .taskButtonSize), spacing: 0, alignment: .center)
+    ]
+    
     var body: some View {
         VStack {
-            ScrollView(.vertical, showsIndicators: false){
+            LazyVGrid(columns: gridColumns, alignment: .center, spacing: 0, content: {
                 ForEach(taskModel.tasks, id:\.id){ task in
                     NavigationLink(destination: TaskDetailView(task: task)) {
                         TaskCircle(task: task, direction: getTaskDirection(task.placement))
                     }
+                    .padding(.top, .directionHeight)
                 }
-            }
+            })
+            .padding(.horizontal)
+            
             
             HStack {
                 Button("Add new task", action: taskModel.addTask)

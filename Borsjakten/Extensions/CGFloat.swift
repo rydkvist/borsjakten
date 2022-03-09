@@ -9,7 +9,7 @@
 import SwiftUI
 
 public extension CGFloat {
-    static let minButtonSize: CGFloat = 44
+    static let taskButtonSize: CGFloat = 44
     
     static let directionWidth: CGFloat = 16
     static let directionHeight: CGFloat = 32

@@ -26,10 +26,6 @@ struct TaskCircle: View {
         return offset
     }
     
-    private func emptyFunc() {
-        
-    }
-    
     var body: some View {
         ZStack {
             Rectangle()
@@ -41,20 +37,12 @@ struct TaskCircle: View {
                 )
                 .border(.blue, width: 1)
                 .offset(getDirectionOffset())
-                .opacity(direction == .fake ? 0 : 1)
             
-            if direction == .fake {
-                Button("", action: emptyFunc)
-                    .buttonStyle(TaskButtonStyle(isCompleted: task.isCompleted))
-                    .opacity(0)
-            } else {
-                NavigationLink(destination: TaskDetailView(task: task)) {
-                    Text(String(task.placement))
-                }
-                .buttonStyle(TaskButtonStyle(isCompleted: task.isCompleted))
+            NavigationLink(destination: TaskDetailView(task: task)) {
+                Text(String(task.placement))
             }
+            .buttonStyle(TaskButtonStyle(isCompleted: task.isCompleted))
         }
-        .padding(8)
     }
 }
 
@@ -62,62 +50,13 @@ enum TaskDirection: String {
     case up
     case right
     case left
-    case fake
 }
 
-
-struct FakeTaskCircle: View {
-    let fakeTask: TaskItem = TaskItem(
-        placement: -1,
-        label: "",
-        description: "",
-        active: false,
-        isCompleted: false
-    )
-    
-    var body: some View {
-        TaskCircle(task: fakeTask, direction: .fake)
+struct TaskCircle_Previews: PreviewProvider {
+    static var previews: some View {
+        TaskCircle(
+            task: TaskItem(placement: 30, label: "Walla", description: "space", active: true, isCompleted: false),
+            direction: .up
+        )
     }
 }
-
-//struct TaskCircle_Previews: PreviewProvider {
-//    static var previews: some View {
-//        VStack {
-//            HStack {
-//                TaskCircle(
-//                    task: TaskItem(label: "6", description: "walla"),
-//                    direction: .up
-//                )
-//                TaskCircle(
-//                    task: TaskItem(label: "5", description: "walla"),
-//                    direction: .left
-//                )
-//                TaskCircle(
-//                    task: TaskItem(label: "4", description: "walla"),
-//                    direction: .left
-//                )
-//            }
-//
-//            HStack {
-//                FakeTaskCircle()
-//                TaskCircle(
-//                    task: TaskItem(label: "2", description: "walla"),
-//                    direction: .right
-//                )
-//                TaskCircle(
-//                    task: TaskItem(label: "3", description: "walla"),
-//                    direction: .up
-//                )
-//            }
-//
-//            HStack {
-//                FakeTaskCircle()
-//                TaskCircle(
-//                    task: TaskItem(label: "1", description: "walla"),
-//                    direction: .up
-//                )
-//                FakeTaskCircle()
-//            }
-//        }
-//    }
-//}

@@ -2,18 +2,18 @@ import SwiftUI
 import FirebaseAuth
 
 struct PasswordView: View {
-    @EnvironmentObject var authModel: AuthModel
+    @EnvironmentObject private var authVM: AuthViewModel
     @State private var password: String = ""
     var isLoginPassword: Bool = false
     
     private func validatePassword() {
         if !password.isEmpty {
             if password.count >= 8 && password.count <= 128 {
-                authModel.onboardingCredentials.password = password
+                authVM.onboardingCredentials.password = password
                 if isLoginPassword {
-                    authModel.onSignIn(email: authModel.onboardingCredentials.email, password: authModel.onboardingCredentials.password)
+                    authVM.onSignIn(email: authVM.onboardingCredentials.email, password: authVM.onboardingCredentials.password)
                 } else {
-                    authModel.onSignUp(email: authModel.onboardingCredentials.email, password: authModel.onboardingCredentials.password)
+                    authVM.onSignUp(email: authVM.onboardingCredentials.email, password: authVM.onboardingCredentials.password)
                 }
             }
         }

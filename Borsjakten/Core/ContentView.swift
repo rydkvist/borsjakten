@@ -2,15 +2,15 @@ import SwiftUI
 import FirebaseAuth
 
 struct ContentView: View {
-    @StateObject var taskModel = TaskModel()
-    @StateObject var authModel = AuthModel()
-    @State var selectedTab: Tabs = .home
+    @EnvironmentObject private var tasksVM: TasksViewModel
+
+    @State private var selectedTab: Tabs = .home
     @AppStorage("shouldShowOnboarding") var shouldShowOnboarding: Bool = true
     
     var body: some View {
         NavigationView {
             TabView(selection: $selectedTab) {
-                HomeView(taskModel: taskModel)
+                HomeView()
                     .tabItem {
                         Label("Home", systemImage: "house")
                     }
@@ -24,9 +24,6 @@ struct ContentView: View {
             }
         }
         .fullScreenCover(isPresented: $shouldShowOnboarding, content: { OnboardingView() })
-        .environmentObject(authModel)
-        .onAppear(perform: authModel.setAuthState)
-        .onDisappear(perform: authModel.removeAuthState)
     }
 }
 
@@ -38,11 +35,11 @@ enum Tabs: String {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var authModel: AuthModel = AuthModel()
+    static var authVM = AuthViewModel()
     
     static var previews: some View {
         OnboardingView()
             .preferredColorScheme(.dark)
-            .environmentObject(authModel)
+            .environmentObject(authVM)
     }
 }

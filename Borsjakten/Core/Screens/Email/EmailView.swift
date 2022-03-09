@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct EmailView: View {
-    @EnvironmentObject var authModel: AuthModel
+    @EnvironmentObject private var authVM: AuthViewModel
     @State private var goToPasswordScreen: Bool = false
     @State private var email: String = ""
     var isLoginEmail: Bool = false
     
     private func validateEmailField() {
-        if email == authModel.onboardingCredentials.email {
+        if email == authVM.onboardingCredentials.email {
             goToPasswordScreen = true
             return
         }
@@ -15,16 +15,16 @@ struct EmailView: View {
         if !email.isEmpty {
             if isValidEmailFormat(email) {
                 if !isLoginEmail {
-                    authModel.isValidEmail(email: email) {
+                    authVM.isValidEmail(email: email) {
                         goToPasswordScreen = true
                     }
                 } else {
-                    authModel.onboardingCredentials.email = email
+                    authVM.onboardingCredentials.email = email
                     goToPasswordScreen = true
                 }
                
             } else {
-                authModel.emailErrorMessage = "Enter a valid e-mail address"
+                authVM.emailErrorMessage = "Enter a valid e-mail address"
                 goToPasswordScreen = false
             }
         }
@@ -46,8 +46,8 @@ struct EmailView: View {
                 .buttonStyle(PrimaryButtonStyle(buttonText: $email))
                 .disabled(email.isEmpty)
             
-            if authModel.emailErrorMessage.count > 0 {
-                Text(authModel.emailErrorMessage)
+            if authVM.emailErrorMessage.count > 0 {
+                Text(authVM.emailErrorMessage)
                     .font(.subheadline)
                     .foregroundColor(.red)
                     .padding(.vertical)

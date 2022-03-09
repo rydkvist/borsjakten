@@ -2,14 +2,7 @@ import Foundation
 import SwiftUI
 import FirebaseAuth
 
-struct OnboardingCredentials {
-    var email: String = ""
-    var password: String = ""
-    var username: String = ""
-    var displayName: String = ""
-}
-
-class AuthModel: ObservableObject {
+class AuthViewModel: ObservableObject {
     @Published var user: User? {
         didSet {
             if user?.uid != nil {
@@ -175,4 +168,11 @@ class AuthModel: ObservableObject {
 
 enum SigningError: String {
     case onSignIn, onSignUp
+}
+
+struct OnboardingCredentials {
+    var email: String = ""
+    var password: String = ""
+    var username: String = ""
+    var displayName: String = ""
 }

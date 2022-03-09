@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct UsernameView: View {
-    @EnvironmentObject var authModel: AuthModel
+    @EnvironmentObject private var authVM: AuthViewModel
     @State private var username: String = ""
     @Environment(\.presentationMode) var presentationMode
     
     private func validateUsername() {
         if !username.isEmpty {
             if username.count >= 2 && username.count < 28 {
-                authModel.updateUser(userName: username) {
+                authVM.updateUser(userName: username) {
                     presentationMode.wrappedValue.dismiss()
                 }
             }

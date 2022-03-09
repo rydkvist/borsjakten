@@ -22,15 +22,15 @@
 		14880B7627309C67008CC2F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B7527309C67008CC2F5 /* AppDelegate.swift */; };
 		14880B7827309ECA008CC2F5 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B7727309ECA008CC2F5 /* EmailView.swift */; };
 		14880B7A27309F5E008CC2F5 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B7927309F5E008CC2F5 /* PasswordView.swift */; };
-		14880B7C2730AC51008CC2F5 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B7B2730AC51008CC2F5 /* AuthModel.swift */; };
-		14B82377272F33CE00F8552A /* Borsjakten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82376272F33CE00F8552A /* Borsjakten.swift */; };
+		14880B7C2730AC51008CC2F5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B7B2730AC51008CC2F5 /* AuthViewModel.swift */; };
+		14B82377272F33CE00F8552A /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82376272F33CE00F8552A /* AppCore.swift */; };
 		14B82379272F33CE00F8552A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82378272F33CE00F8552A /* ContentView.swift */; };
 		14B8237B272F33CF00F8552A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B8237A272F33CF00F8552A /* Assets.xcassets */; };
 		14B8237E272F33CF00F8552A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B8237D272F33CF00F8552A /* Preview Assets.xcassets */; };
 		14B82387272F3B9900F8552A /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82386272F3B9900F8552A /* TaskDetailView.swift */; };
 		14B82389272F409700F8552A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82388272F409700F8552A /* HomeView.swift */; };
-		14B8238C272F485300F8552A /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8238B272F485300F8552A /* TaskItem.swift */; };
-		14B8238E272F487800F8552A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8238D272F487800F8552A /* TaskModel.swift */; };
+		14B8238C272F485300F8552A /* TasksModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8238B272F485300F8552A /* TasksModels.swift */; };
+		14B8238E272F487800F8552A /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8238D272F487800F8552A /* TasksViewModel.swift */; };
 		14B82392272F49D800F8552A /* TaskButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82391272F49D800F8552A /* TaskButtonStyle.swift */; };
 		14B82395272F49FC00F8552A /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82394272F49FC00F8552A /* CGFloat.swift */; };
 		14B82397272F4B8000F8552A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82396272F4B8000F8552A /* SettingsView.swift */; };
@@ -48,16 +48,16 @@
 		14880B7527309C67008CC2F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14880B7727309ECA008CC2F5 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		14880B7927309F5E008CC2F5 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
-		14880B7B2730AC51008CC2F5 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		14880B7B2730AC51008CC2F5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		14B82373272F33CE00F8552A /* Borsjakten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Borsjakten.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		14B82376272F33CE00F8552A /* Borsjakten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borsjakten.swift; sourceTree = "<group>"; };
+		14B82376272F33CE00F8552A /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		14B82378272F33CE00F8552A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		14B8237A272F33CF00F8552A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14B8237D272F33CF00F8552A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		14B82386272F3B9900F8552A /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
 		14B82388272F409700F8552A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		14B8238B272F485300F8552A /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
-		14B8238D272F487800F8552A /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		14B8238B272F485300F8552A /* TasksModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksModels.swift; sourceTree = "<group>"; };
+		14B8238D272F487800F8552A /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
 		14B82391272F49D800F8552A /* TaskButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskButtonStyle.swift; sourceTree = "<group>"; };
 		14B82394272F49FC00F8552A /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		14B82396272F4B8000F8552A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -81,13 +81,14 @@
 		14880B6727309701008CC2F5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				14B82388272F409700F8552A /* HomeView.swift */,
-				14B82396272F4B8000F8552A /* SettingsView.swift */,
-				14B82386272F3B9900F8552A /* TaskDetailView.swift */,
-				147B8CF92738943B0080FDCF /* LandingView.swift */,
-				14880B7727309ECA008CC2F5 /* EmailView.swift */,
-				14880B7927309F5E008CC2F5 /* PasswordView.swift */,
-				147B8CFF2738B2910080FDCF /* UsernameView.swift */,
+				1497B27127D966AC007A944B /* Email */,
+				1497B26D27D9667B007A944B /* Home */,
+				1497B27027D9669F007A944B /* Landing */,
+				1497B26C27D96590007A944B /* Onboarding */,
+				1497B27227D966B2007A944B /* Password */,
+				1497B26F27D96697007A944B /* Settings */,
+				1497B26E27D96690007A944B /* TaskDetail */,
+				1497B27327D966B7007A944B /* Username */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -95,10 +96,107 @@
 		14880B6927309746008CC2F5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				144A9AF0272F5070007C2B84 /* TaskCircle.swift */,
 				147B8CF7273891AC0080FDCF /* AuthComponents.swift */,
+				144A9AF0272F5070007C2B84 /* TaskCircle.swift */,
+				14B82390272F49C400F8552A /* Button Styles */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		1497B26827D96205007A944B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1497B26927D96482007A944B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				14B8237A272F33CF00F8552A /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		1497B26A27D964BF007A944B /* TasksViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				14B8238D272F487800F8552A /* TasksViewModel.swift */,
+				14B8238B272F485300F8552A /* TasksModels.swift */,
+			);
+			path = TasksViewModel;
+			sourceTree = "<group>";
+		};
+		1497B26B27D9650C007A944B /* AuthViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				14880B7B2730AC51008CC2F5 /* AuthViewModel.swift */,
+			);
+			path = AuthViewModel;
+			sourceTree = "<group>";
+		};
+		1497B26C27D96590007A944B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				147B8CF52738886E0080FDCF /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		1497B26D27D9667B007A944B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				14B82388272F409700F8552A /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1497B26E27D96690007A944B /* TaskDetail */ = {
+			isa = PBXGroup;
+			children = (
+				14B82386272F3B9900F8552A /* TaskDetailView.swift */,
+			);
+			path = TaskDetail;
+			sourceTree = "<group>";
+		};
+		1497B26F27D96697007A944B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				14B82396272F4B8000F8552A /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1497B27027D9669F007A944B /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				147B8CF92738943B0080FDCF /* LandingView.swift */,
+			);
+			path = Landing;
+			sourceTree = "<group>";
+		};
+		1497B27127D966AC007A944B /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				14880B7727309ECA008CC2F5 /* EmailView.swift */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		1497B27227D966B2007A944B /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				14880B7927309F5E008CC2F5 /* PasswordView.swift */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
+		1497B27327D966B7007A944B /* Username */ = {
+			isa = PBXGroup;
+			children = (
+				147B8CFF2738B2910080FDCF /* UsernameView.swift */,
+			);
+			path = Username;
 			sourceTree = "<group>";
 		};
 		14B8236A272F33CE00F8552A = {
@@ -106,6 +204,7 @@
 			children = (
 				14B82375272F33CE00F8552A /* Borsjakten */,
 				14B82374272F33CE00F8552A /* Products */,
+				1497B26827D96205007A944B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,14 +219,13 @@
 		14B82375272F33CE00F8552A /* Borsjakten */ = {
 			isa = PBXGroup;
 			children = (
-				14B82376272F33CE00F8552A /* Borsjakten.swift */,
-				14880B7527309C67008CC2F5 /* AppDelegate.swift */,
-				14B8237A272F33CF00F8552A /* Assets.xcassets */,
 				14880B6A2730994B008CC2F5 /* GoogleService-Info.plist */,
-				14B8237C272F33CF00F8552A /* Preview Content */,
-				14B82393272F49F100F8552A /* Extensions */,
-				14B8238A272F484A00F8552A /* Models */,
+				14880B7527309C67008CC2F5 /* AppDelegate.swift */,
+				1497B26927D96482007A944B /* Assets */,
 				14B8238F272F49A000F8552A /* Core */,
+				14B82393272F49F100F8552A /* Extensions */,
+				14B8237C272F33CF00F8552A /* Preview Content */,
+				14B8238A272F484A00F8552A /* ViewModels */,
 			);
 			path = Borsjakten;
 			sourceTree = "<group>";
@@ -140,24 +238,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		14B8238A272F484A00F8552A /* Models */ = {
+		14B8238A272F484A00F8552A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				14B8238B272F485300F8552A /* TaskItem.swift */,
-				14B8238D272F487800F8552A /* TaskModel.swift */,
-				14880B7B2730AC51008CC2F5 /* AuthModel.swift */,
+				1497B26B27D9650C007A944B /* AuthViewModel */,
+				1497B26A27D964BF007A944B /* TasksViewModel */,
 			);
-			path = Models;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		14B8238F272F49A000F8552A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				14B82376272F33CE00F8552A /* AppCore.swift */,
 				14B82378272F33CE00F8552A /* ContentView.swift */,
-				147B8CF52738886E0080FDCF /* OnboardingView.swift */,
-				14880B6727309701008CC2F5 /* Screens */,
 				14880B6927309746008CC2F5 /* Components */,
-				14B82390272F49C400F8552A /* Button Styles */,
+				14880B6727309701008CC2F5 /* Screens */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -263,16 +359,16 @@
 			files = (
 				14880B7627309C67008CC2F5 /* AppDelegate.swift in Sources */,
 				14B82395272F49FC00F8552A /* CGFloat.swift in Sources */,
-				14B8238E272F487800F8552A /* TaskModel.swift in Sources */,
+				14B8238E272F487800F8552A /* TasksViewModel.swift in Sources */,
 				14B82387272F3B9900F8552A /* TaskDetailView.swift in Sources */,
 				14B82397272F4B8000F8552A /* SettingsView.swift in Sources */,
-				14B8238C272F485300F8552A /* TaskItem.swift in Sources */,
+				14B8238C272F485300F8552A /* TasksModels.swift in Sources */,
 				147B8CFA2738943B0080FDCF /* LandingView.swift in Sources */,
 				14B82392272F49D800F8552A /* TaskButtonStyle.swift in Sources */,
 				147B8CF8273891AC0080FDCF /* AuthComponents.swift in Sources */,
 				144A9AF1272F5070007C2B84 /* TaskCircle.swift in Sources */,
 				14B82379272F33CE00F8552A /* ContentView.swift in Sources */,
-				14880B7C2730AC51008CC2F5 /* AuthModel.swift in Sources */,
+				14880B7C2730AC51008CC2F5 /* AuthViewModel.swift in Sources */,
 				14880B7827309ECA008CC2F5 /* EmailView.swift in Sources */,
 				147B8CFE2738A5C40080FDCF /* PrimaryButtonStyle.swift in Sources */,
 				14880B7A27309F5E008CC2F5 /* PasswordView.swift in Sources */,
@@ -280,7 +376,7 @@
 				147B8D002738B2910080FDCF /* UsernameView.swift in Sources */,
 				147B8CF62738886E0080FDCF /* OnboardingView.swift in Sources */,
 				14B82389272F409700F8552A /* HomeView.swift in Sources */,
-				14B82377272F33CE00F8552A /* Borsjakten.swift in Sources */,
+				14B82377272F33CE00F8552A /* AppCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"borsjakten/Preview Content\"";
+				DEVELOPMENT_TEAM = 2LUWASCYRV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -439,6 +536,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"borsjakten/Preview Content\"";
+				DEVELOPMENT_TEAM = 2LUWASCYRV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -20,7 +20,7 @@ struct TaskButtonStyle: ButtonStyle {
             .label
             .font(.body)
             .foregroundColor(isCompleted ? .white : .blue)
-            .frame(width: .minButtonSize, height: .minButtonSize, alignment: .center)
+            .frame(width: .taskButtonSize, height: .taskButtonSize, alignment: .center)
             .background(setBackground(isPressed: configuration.isPressed))
             .clipShape(Circle())
             .overlay(
