@@ -14,7 +14,6 @@
 		147B8CFC2738A3680080FDCF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B8CFB2738A3680080FDCF /* View.swift */; };
 		147B8CFE2738A5C40080FDCF /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B8CFD2738A5C40080FDCF /* PrimaryButtonStyle.swift */; };
 		147B8D002738B2910080FDCF /* UsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B8CFF2738B2910080FDCF /* UsernameView.swift */; };
-		14880B6B2730994B008CC2F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14880B6A2730994B008CC2F5 /* GoogleService-Info.plist */; };
 		14880B6E27309C1A008CC2F5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 14880B6D27309C1A008CC2F5 /* FirebaseAnalytics */; };
 		14880B7027309C1A008CC2F5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 14880B6F27309C1A008CC2F5 /* FirebaseAuth */; };
 		14880B7227309C1A008CC2F5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 14880B7127309C1A008CC2F5 /* FirebaseFirestore */; };
@@ -23,6 +22,7 @@
 		14880B7827309ECA008CC2F5 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B7727309ECA008CC2F5 /* EmailView.swift */; };
 		14880B7A27309F5E008CC2F5 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B7927309F5E008CC2F5 /* PasswordView.swift */; };
 		14880B7C2730AC51008CC2F5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B7B2730AC51008CC2F5 /* AuthViewModel.swift */; };
+		1497B27727D97500007A944B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1497B27627D97500007A944B /* GoogleService-Info.plist */; };
 		14B82377272F33CE00F8552A /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82376272F33CE00F8552A /* AppCore.swift */; };
 		14B82379272F33CE00F8552A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82378272F33CE00F8552A /* ContentView.swift */; };
 		14B8237B272F33CF00F8552A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B8237A272F33CF00F8552A /* Assets.xcassets */; };
@@ -44,11 +44,11 @@
 		147B8CFB2738A3680080FDCF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		147B8CFD2738A5C40080FDCF /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		147B8CFF2738B2910080FDCF /* UsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameView.swift; sourceTree = "<group>"; };
-		14880B6A2730994B008CC2F5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		14880B7527309C67008CC2F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14880B7727309ECA008CC2F5 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		14880B7927309F5E008CC2F5 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		14880B7B2730AC51008CC2F5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		1497B27627D97500007A944B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		14B82373272F33CE00F8552A /* Borsjakten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Borsjakten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B82376272F33CE00F8552A /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		14B82378272F33CE00F8552A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -219,8 +219,8 @@
 		14B82375272F33CE00F8552A /* Borsjakten */ = {
 			isa = PBXGroup;
 			children = (
-				14880B6A2730994B008CC2F5 /* GoogleService-Info.plist */,
 				14880B7527309C67008CC2F5 /* AppDelegate.swift */,
+				1497B27627D97500007A944B /* GoogleService-Info.plist */,
 				1497B26927D96482007A944B /* Assets */,
 				14B8238F272F49A000F8552A /* Core */,
 				14B82393272F49F100F8552A /* Extensions */,
@@ -346,7 +346,7 @@
 			files = (
 				14B8237E272F33CF00F8552A /* Preview Assets.xcassets in Resources */,
 				14B8237B272F33CF00F8552A /* Assets.xcassets in Resources */,
-				14880B6B2730994B008CC2F5 /* GoogleService-Info.plist in Resources */,
+				1497B27727D97500007A944B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
