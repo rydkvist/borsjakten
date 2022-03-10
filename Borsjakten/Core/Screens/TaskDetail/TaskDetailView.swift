@@ -1,15 +1,19 @@
 import SwiftUI
 
 struct TaskDetailView: View {
-    var task: TaskItem
+    @EnvironmentObject private var tasksVM: TasksViewModel
+    var task: TaskResponse
     
     var body: some View {
         NavigationView {
             VStack {
-                Text(task.label)
+                Text(task.info.title)
                     .font(.headline)
-                Text(task.description)
+
+                Text(task.info.text)
                     .font(.subheadline)
+
+                Button("Finished reading", action: { tasksVM.completeTask(task) })
             }
         }
         .navigationTitle("Task \(task.placement)")
@@ -18,12 +22,6 @@ struct TaskDetailView: View {
 
 struct TaskDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDetailView(task: TaskItem(
-            placement: 1,
-            label: "CSN",
-            description: "Beskrivning",
-            active: true,
-            isCompleted: true
-        ))
+        TaskDetailView(task: .mockedTask())
     }
 }

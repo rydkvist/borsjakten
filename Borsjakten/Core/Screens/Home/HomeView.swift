@@ -1,49 +1,38 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject private var taskModel: TasksViewModel
-    
-    private func getTaskDirection(_ placement: Int) -> TaskDirection {
-        if placement == 1 {
-            return .up
-        } else if placement == 2 {
-            return .right
-        } else if placement % 3 == 0 {
-            return .up
-        } else if placement % 3 == 1 {
-            return .left
-        } else {
-            return .left
+    @EnvironmentObject private var tasksVM: TasksViewModel
+    @State private var scrolledListOnAppear = false
+
+    private func scrollToActiveTask(_ proxy: ScrollViewProxy) {
+        guard !scrolledListOnAppear, let activeTask = tasksVM.tasks.first(where: { $0.status == .active }) else {
+            return
         }
+
+        proxy.scrollTo(activeTask.id, anchor: .center)
+        scrolledListOnAppear = true
     }
-    
-    let gridColumns: [GridItem] = [
-        GridItem(.flexible(minimum: .taskButtonSize), spacing: 0, alignment: .center),
-        GridItem(.flexible(minimum: .taskButtonSize), spacing: 0, alignment: .center),
-        GridItem(.flexible(minimum: .taskButtonSize), spacing: 0, alignment: .center)
-    ]
-    
+
     var body: some View {
-        VStack {
-            LazyVGrid(columns: gridColumns, alignment: .center, spacing: 0, content: {
-                ForEach(taskModel.tasks, id:\.id){ task in
-                    NavigationLink(destination: TaskDetailView(task: task)) {
-                        TaskCircle(task: task, direction: getTaskDirection(task.placement))
-                    }
-                    .padding(.top, .directionHeight)
-                }
-            })
-            .padding(.horizontal)
-            
-            
-            HStack {
-                Button("Add new task", action: taskModel.addTask)
-                Button("Completed current task", action: taskModel.completeTask)
-                Button("Remove last task", action: taskModel.removeLastTask)
+        ScrollViewReader { proxy in
+            ScrollView(.vertical, showsIndicators: false) {
+                TaskListView(tasksVM: tasksVM)
+                    .padding(.top, .listInset)
+
+                HomeInfoHelpView()
             }
-            .padding(.bottom)
+            .overlay(alignment: .top) {
+                HomeProgressToolbarView(
+                    completedTasks: tasksVM.amountOfCompletedTasks,
+                    amountOfTasks: tasksVM.tasks.count
+                )
+            }
+            .navigationBarHidden(true)
+            .onAppear(perform: { scrollToActiveTask(proxy) })
+            .onAppear(perform: tasksVM.updateCompletedTasks)
+            .onChange(of: tasksVM.tasks, perform: { _ in
+                tasksVM.updateCompletedTasks()
+            })
         }
     }
 }
-
-

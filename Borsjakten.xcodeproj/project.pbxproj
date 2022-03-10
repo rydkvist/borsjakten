@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		144A9AF1272F5070007C2B84 /* TaskCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144A9AF0272F5070007C2B84 /* TaskCircle.swift */; };
 		147B8CF62738886E0080FDCF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B8CF52738886E0080FDCF /* OnboardingView.swift */; };
 		147B8CF8273891AC0080FDCF /* AuthComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B8CF7273891AC0080FDCF /* AuthComponents.swift */; };
 		147B8CFA2738943B0080FDCF /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B8CF92738943B0080FDCF /* LandingView.swift */; };
@@ -23,6 +22,10 @@
 		14880B7A27309F5E008CC2F5 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B7927309F5E008CC2F5 /* PasswordView.swift */; };
 		14880B7C2730AC51008CC2F5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B7B2730AC51008CC2F5 /* AuthViewModel.swift */; };
 		1497B27727D97500007A944B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1497B27627D97500007A944B /* GoogleService-Info.plist */; };
+		1497B27927D97845007A944B /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27827D97845007A944B /* TaskListView.swift */; };
+		1497B27B27D978A5007A944B /* TaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27A27D978A5007A944B /* TaskItemView.swift */; };
+		1497B27E27D99787007A944B /* HomeProgressToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27D27D99787007A944B /* HomeProgressToolbarView.swift */; };
+		1497B28027D999DE007A944B /* HomeInfoHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27F27D999DE007A944B /* HomeInfoHelpView.swift */; };
 		14B82377272F33CE00F8552A /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82376272F33CE00F8552A /* AppCore.swift */; };
 		14B82379272F33CE00F8552A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82378272F33CE00F8552A /* ContentView.swift */; };
 		14B8237B272F33CF00F8552A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B8237A272F33CF00F8552A /* Assets.xcassets */; };
@@ -37,7 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		144A9AF0272F5070007C2B84 /* TaskCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCircle.swift; sourceTree = "<group>"; };
 		147B8CF52738886E0080FDCF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		147B8CF7273891AC0080FDCF /* AuthComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthComponents.swift; sourceTree = "<group>"; };
 		147B8CF92738943B0080FDCF /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		14880B7927309F5E008CC2F5 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		14880B7B2730AC51008CC2F5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		1497B27627D97500007A944B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1497B27827D97845007A944B /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		1497B27A27D978A5007A944B /* TaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemView.swift; sourceTree = "<group>"; };
+		1497B27D27D99787007A944B /* HomeProgressToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProgressToolbarView.swift; sourceTree = "<group>"; };
+		1497B27F27D999DE007A944B /* HomeInfoHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoHelpView.swift; sourceTree = "<group>"; };
 		14B82373272F33CE00F8552A /* Borsjakten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Borsjakten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B82376272F33CE00F8552A /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		14B82378272F33CE00F8552A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				147B8CF7273891AC0080FDCF /* AuthComponents.swift */,
-				144A9AF0272F5070007C2B84 /* TaskCircle.swift */,
 				14B82390272F49C400F8552A /* Button Styles */,
 			);
 			path = Components;
@@ -146,7 +151,10 @@
 		1497B26D27D9667B007A944B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1497B27F27D999DE007A944B /* HomeInfoHelpView.swift */,
+				1497B27D27D99787007A944B /* HomeProgressToolbarView.swift */,
 				14B82388272F409700F8552A /* HomeView.swift */,
+				1497B27C27D978AA007A944B /* TaskList */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -199,6 +207,16 @@
 			path = Username;
 			sourceTree = "<group>";
 		};
+		1497B27C27D978AA007A944B /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				1497B27827D97845007A944B /* TaskListView.swift */,
+				1497B27A27D978A5007A944B /* TaskItemView.swift */,
+				14B82391272F49D800F8552A /* TaskButtonStyle.swift */,
+			);
+			path = TaskList;
+			sourceTree = "<group>";
+		};
 		14B8236A272F33CE00F8552A = {
 			isa = PBXGroup;
 			children = (
@@ -219,8 +237,8 @@
 		14B82375272F33CE00F8552A /* Borsjakten */ = {
 			isa = PBXGroup;
 			children = (
-				14880B7527309C67008CC2F5 /* AppDelegate.swift */,
 				1497B27627D97500007A944B /* GoogleService-Info.plist */,
+				14880B7527309C67008CC2F5 /* AppDelegate.swift */,
 				1497B26927D96482007A944B /* Assets */,
 				14B8238F272F49A000F8552A /* Core */,
 				14B82393272F49F100F8552A /* Extensions */,
@@ -261,7 +279,6 @@
 		14B82390272F49C400F8552A /* Button Styles */ = {
 			isa = PBXGroup;
 			children = (
-				14B82391272F49D800F8552A /* TaskButtonStyle.swift */,
 				147B8CFD2738A5C40080FDCF /* PrimaryButtonStyle.swift */,
 			);
 			path = "Button Styles";
@@ -361,16 +378,19 @@
 				14B82395272F49FC00F8552A /* CGFloat.swift in Sources */,
 				14B8238E272F487800F8552A /* TasksViewModel.swift in Sources */,
 				14B82387272F3B9900F8552A /* TaskDetailView.swift in Sources */,
+				1497B27B27D978A5007A944B /* TaskItemView.swift in Sources */,
 				14B82397272F4B8000F8552A /* SettingsView.swift in Sources */,
 				14B8238C272F485300F8552A /* TasksModels.swift in Sources */,
 				147B8CFA2738943B0080FDCF /* LandingView.swift in Sources */,
 				14B82392272F49D800F8552A /* TaskButtonStyle.swift in Sources */,
 				147B8CF8273891AC0080FDCF /* AuthComponents.swift in Sources */,
-				144A9AF1272F5070007C2B84 /* TaskCircle.swift in Sources */,
 				14B82379272F33CE00F8552A /* ContentView.swift in Sources */,
 				14880B7C2730AC51008CC2F5 /* AuthViewModel.swift in Sources */,
+				1497B28027D999DE007A944B /* HomeInfoHelpView.swift in Sources */,
+				1497B27E27D99787007A944B /* HomeProgressToolbarView.swift in Sources */,
 				14880B7827309ECA008CC2F5 /* EmailView.swift in Sources */,
 				147B8CFE2738A5C40080FDCF /* PrimaryButtonStyle.swift in Sources */,
+				1497B27927D97845007A944B /* TaskListView.swift in Sources */,
 				14880B7A27309F5E008CC2F5 /* PasswordView.swift in Sources */,
 				147B8CFC2738A3680080FDCF /* View.swift in Sources */,
 				147B8D002738B2910080FDCF /* UsernameView.swift in Sources */,
