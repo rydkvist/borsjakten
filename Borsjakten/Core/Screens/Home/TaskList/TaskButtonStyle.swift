@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct TaskButtonStyle: ButtonStyle {
-    var isCompleted: Bool
+    var status: TaskStatusResponse
         
-    func setBackground(isPressed: Bool) -> Color {
-        if isCompleted && isPressed {
+    private func setBackground(isPressed: Bool) -> Color {
+        if status == .completed && isPressed {
             return .blue.opacity(0.82)
-        } else if isCompleted {
+        } else if status == .completed {
             return .blue
-        } else if isPressed {
+        } else if status != .completed && isPressed {
             return .white.opacity(0.82)
         } else {
             return .white
@@ -19,8 +19,8 @@ struct TaskButtonStyle: ButtonStyle {
         configuration
             .label
             .font(.body)
-            .foregroundColor(isCompleted ? .white : .blue)
-            .frame(width: .taskButtonSize, height: .taskButtonSize, alignment: .center)
+            .foregroundColor(status == .completed ? .white : .blue)
+            .frame(width: .minButtonSize, height: .minButtonSize, alignment: .center)
             .background(setBackground(isPressed: configuration.isPressed))
             .clipShape(Circle())
             .overlay(

@@ -14,7 +14,7 @@ struct EmailView: View {
         
         if !email.isEmpty {
             if isValidEmailFormat(email) {
-                if !isLoginEmail {
+                if !isLoginEmail {
                     authVM.isValidEmail(email: email) {
                         goToPasswordScreen = true
                     }
