@@ -9,11 +9,15 @@ struct AppCore: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .onAppear(perform: authVM.setAuthState)
-                .onDisappear(perform: authVM.removeAuthState)
-                .environmentObject(authVM)
-                .environmentObject(tasksVM)
+            ZStack {
+                TabNavigationContentView()
+                    .onDisappear(perform: authVM.removeAuthState)
+                    .environmentObject(authVM)
+                    .environmentObject(tasksVM)
+                    .task {
+                        authVM.setAuthState()
+                    }
+            }
         }
     }
 }

@@ -1,178 +1,132 @@
-import Foundation
 import SwiftUI
 import FirebaseAuth
 
 class AuthViewModel: ObservableObject {
     @Published var user: User? {
         didSet {
-            if user?.uid != nil {
-                self.isAuthed = true
-            } else {
-                self.isAuthed = false
-            }
+            isAuthed = user?.uid != nil
         }
     }
-    @Published var isAuthed: Bool = false
-    @Published var isAuthLoading: Bool = false
-    @Published var signUpErrorMessage: String = ""
-    @Published var signInErrorMessage: String = ""
-    
-    @Published var emailErrorMessage: String = ""    
-    @Published var onboardingCredentials: OnboardingCredentials = OnboardingCredentials()
-    
+    @Published var isAuthed = false
+    @Published var authErrorMessage: String?
     @AppStorage("shouldShowOnboarding") var shouldShowOnboarding: Bool = true
+
     @State private var handle: AuthStateDidChangeListenerHandle?
-    
-    public func onSignUp(email: String, password: String) {
-        self.isAuthLoading = true
-        
-        Auth.auth().createUser(
-            withEmail: email,
-            password: password
-        ) { authResult, error in
-            self.handleSigningError(handleFor: .onSignUp, authResult: authResult, error: error)
-            guard let user = authResult?.user else { return }
-            
-            DispatchQueue.main.async {
-                self.user = user
-                self.sendEmailVerification()
-            }
-        }
-        
-        self.isAuthLoading = false
-    }
-    
-    public func onSignIn(email: String, password: String) {
-        self.isAuthLoading = true
-        
-        Auth.auth().signIn(
-            withEmail: email,
-            password: password
-        ) { [weak self] authResult, error in
-            guard let strongSelf = self else { return }
-            strongSelf.handleSigningError(handleFor: .onSignIn, authResult: authResult, error: error)
-            guard let user = authResult?.user else { return }
-            
-            DispatchQueue.main.async {
-                strongSelf.user = user
-            }
-        }
-        self.isAuthLoading = false
-    }
-    
-    public func updateUser(userName: String, onComplete: @escaping () -> Void?) {
-        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-        changeRequest?.displayName = userName
-        changeRequest?.commitChanges { error in
-            if let error = error {
-                print("updateUser: Something went wrong..", error.localizedDescription)
-            }
-            self.setAuthState()
-            onComplete()
-        }
-    }
-    
-    public func isValidEmail(email: String, onValidCompletion: @escaping () -> Void?) {
-        Auth.auth().fetchSignInMethods(forEmail: email) { signInMethods, error in
-            if let error = error {
-                DispatchQueue.main.async {
-                    self.emailErrorMessage = error.localizedDescription
-                    self.onboardingCredentials.email = ""
-                }
-            }
-            
-            if let _ = signInMethods {
-                DispatchQueue.main.async {
-                    self.emailErrorMessage = "That e-mail is already in used."
-                    self.onboardingCredentials.email = ""
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.onboardingCredentials.email = email
-                    self.emailErrorMessage = ""
-                    onValidCompletion()
-                }
-            }
-        }
-    }
-    
-    public func sendEmailVerification() {
-        Auth.auth().currentUser?.sendEmailVerification { error in
-            if let error = error {
-                print("sendEmailVerification error:", error.localizedDescription)
-            }
-        }
-    }
-    
-    private func handleSigningError(handleFor: SigningError, authResult: AuthDataResult?, error: Error?) {
-        var errorMessage = ""
-        
-        if let error = error {
-            print("\(handleFor.rawValue) error:", error.localizedDescription)
-            
-            let castedError = error as NSError
-            if let firebaseError = AuthErrorCode(rawValue: castedError.code){
-                switch(firebaseError) {
-                case .invalidEmail:
-                    errorMessage = "Invalid e-mail"
-                default:
-                    print("Firebase Error Code:", castedError.code)
-                    errorMessage = error.localizedDescription
-                }
-            }
-        }
-        
-        if authResult?.user == nil && error == nil {
-            errorMessage = "Could not get user information"
-        }
-        
-        if handleFor == .onSignUp {
-            return self.signUpErrorMessage = errorMessage
-        } else {
-            return self.signInErrorMessage = errorMessage
-        }
-    }
-    
-    public func onSignOut() {
-        let firebaseAuth = Auth.auth()
+
+    @MainActor
+    func signUpWith(email: String, password: String) async {
+        authErrorMessage = ""
+
         do {
-            try firebaseAuth.signOut()
+            let response = try await Auth
+                .auth()
+                .createUser(withEmail: email, password: password)
+
+            await sendEmailVerification()
+
+            user = response.user
+        } catch {
+            // I don't know why, but I got the runtime error even though I have MainActor
             DispatchQueue.main.async {
-                self.user = nil
+                self.authErrorMessage = self.getFirebaseErrorMessage(label: "signUpWith", error: error)
+            }
+        }
+    }
+
+    @MainActor
+    func signInWith(email: String, password: String) async {
+        authErrorMessage = ""
+        do {
+            let response = try await Auth
+                .auth()
+                .signIn(withEmail: email, password: password)
+
+            user = response.user
+        } catch {
+            // I don't know why, but I got the runtime error even though I have MainActor
+            DispatchQueue.main.async {
+                self.authErrorMessage = self.getFirebaseErrorMessage(label: "signInWith", error: error)
+            }
+        }
+    }
+
+    @discardableResult
+    private func getFirebaseErrorMessage(label: String, error: Error?) -> String? {
+        print("\(label) error:", error?.localizedDescription as Any)
+
+        guard let error = error else {
+            return nil
+        }
+
+        var errorString = ""
+
+        let castedError = error as NSError
+        if let firebaseError = AuthErrorCode(rawValue: castedError.code){
+            switch(firebaseError) {
+            case .invalidEmail:
+                errorString = "Invalid e-mail"
+            case .userNotFound:
+                errorString = "The user doesn't exists"
+            default:
+                print("Firebase Error Code:", castedError.code)
+                errorString = error.localizedDescription
+            }
+        }
+
+        return errorString
+    }
+
+    @MainActor
+    func signOut() async {
+        do {
+            try Auth.auth().signOut()
+            user = nil
+            shouldShowOnboarding = true
+        } catch {
+            getFirebaseErrorMessage(label: "signOut", error: error)
+        }
+    }
+
+    @MainActor
+    func sendEmailVerification() async {
+        do {
+            try await Auth.auth().currentUser?.sendEmailVerification()
+        } catch {
+            getFirebaseErrorMessage(label: "sendEmailVerification", error: error)
+        }
+    }
+
+    @MainActor
+    func updateUser(name: String) async {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = name
+
+        do {
+            try await changeRequest?.commitChanges()
+            setAuthState()
+        } catch {
+            getFirebaseErrorMessage(label: "updateUser", error: error)
+        }
+    }
+
+    @MainActor
+    func setAuthState() {
+        print("setAuthState..")
+        handle = Auth.auth().addStateDidChangeListener { auth, user in
+            print("will change user")
+            if let user = user {
+                print("user = user", user, user.email, user.displayName)
+                if self.shouldShowOnboarding {
+                    self.shouldShowOnboarding = false
+                }
+                self.user = user
+            } else {
                 self.shouldShowOnboarding = true
             }
-        } catch let signOutError as NSError {
-            print("onSignOut Error signing out: %@", signOutError)
         }
     }
-    
-    public func setAuthState() {
-        handle = Auth.auth().addStateDidChangeListener { auth, user in
-            if let user = user {
-                DispatchQueue.main.async {
-                    self.shouldShowOnboarding = false
-                    self.user = user
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.shouldShowOnboarding = true
-                }
-            }
-        }
-    }
-    
-    public func removeAuthState() {
+
+    func removeAuthState() {
         Auth.auth().removeStateDidChangeListener(handle!)
     }
-}
-
-enum SigningError: String {
-    case onSignIn, onSignUp
-}
-
-struct OnboardingCredentials {
-    var email: String = ""
-    var password: String = ""
-    var username: String = ""
-    var displayName: String = ""
 }

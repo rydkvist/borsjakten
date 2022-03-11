@@ -2,28 +2,35 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var authVM: AuthViewModel
-    
-    func getWelcomeText() -> String {
-        var welcomeText: String = "Hey there!"
-        if authVM.isAuthed {
-            let userName = authVM.user?.displayName ?? "BUG"
-            welcomeText = "Hey there \(userName)!"
+
+    @State private var displayName = ""
+    @State private var email = ""
+
+    private func setFieldValues() {
+        if let displayName = authVM.user?.displayName {
+            self.displayName = displayName
         }
-        return welcomeText
+
+        if let email = authVM.user?.email {
+            self.email = email
+        }
     }
-    
+
     var body: some View {
-        VStack(alignment: .leading) {
-            Form {
-                Section {
-                    List {
-                        NavigationLink("Change username", destination: UsernameView())
-                        Button("Logout", action: authVM.onSignOut)
-                    }
-                }
+        List {
+            Section("Account") {
+                TextField("Name", text: $displayName)
+                    .modifier(UsernameFieldModifiers())
+
+                TextField("E-mail", text: $email)
+                    .modifier(EmailFieldModifiers())
+            }
+
+            Section("Other") {
+                Button("Logout", role: .destructive, action: { Task { await authVM.signOut() }})
             }
         }
-        .navigationTitle(getWelcomeText())
+        .onAppear(perform: setFieldValues)
     }
 }
 

@@ -1,12 +1,11 @@
 import SwiftUI
-import FirebaseAuth
 
-struct ContentView: View {
+struct TabNavigationContentView: View {
+    @EnvironmentObject private var authVM: AuthViewModel
     @EnvironmentObject private var tasksVM: TasksViewModel
 
     @State private var selectedTab: Tabs = .home
-    @AppStorage("shouldShowOnboarding") var shouldShowOnboarding: Bool = true
-    
+
     var body: some View {
         NavigationView {
             TabView(selection: $selectedTab) {
@@ -23,14 +22,12 @@ struct ContentView: View {
                     .tag(Tabs.settings)
             }
         }
-        .fullScreenCover(isPresented: $shouldShowOnboarding, content: { OnboardingView() })
+        .fullScreenCover(isPresented: $authVM.shouldShowOnboarding, content: { OnboardingView() })
     }
 }
 
 enum Tabs: String {
     case home
-    case login
-    case register
     case settings
 }
 
