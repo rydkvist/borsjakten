@@ -26,3 +26,9 @@ struct TaskInfoResponse: Equatable {
 enum TaskStatusResponse {
     case completed, active, locked
 }
+
+enum TaskDirection: String {
+    case up
+    case right
+    case left
+}

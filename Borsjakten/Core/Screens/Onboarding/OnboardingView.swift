@@ -9,7 +9,7 @@ struct OnboardingView: View {
         Task {
             await onboardingVM.onPressNext()
 
-            if onboardingVM.onboardingState == .password {
+            if onboardingVM.onboardingState == .password && !onboardingVM.password.isEmpty {
                 await signWithAuth()
             }
         }
@@ -86,7 +86,7 @@ struct OnboardingView: View {
     var body: some View {
         ZStack {
             RadialGradient(
-                gradient: Gradient(colors: [.cyan, .blue]),
+                gradient: Gradient(colors: [.cyan, .accentColor]),
                 center: .topLeading,
                 startRadius: 5,
                 endRadius: .screenHeight

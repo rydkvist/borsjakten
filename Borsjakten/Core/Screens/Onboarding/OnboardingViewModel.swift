@@ -135,11 +135,11 @@ class OnboardingViewModel: ObservableObject {
 
     func getBottomButtonText() -> String {
         if onboardingState == .landing {
-            return "Kom igång"
+            return "Get started"
         } else if onboardingState == .password {
-            return "Börja jakten"
+            return "Start the hunt"
         } else {
-            return "Nästa"
+            return "Next"
         }
     }
 }

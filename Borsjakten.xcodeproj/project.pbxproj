@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1442C53627DE53830002F098 /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442C53527DE53830002F098 /* PortfolioView.swift */; };
+		1442C53827DE55FE0002F098 /* DrawerNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442C53727DE55FE0002F098 /* DrawerNavigationView.swift */; };
+		1442C53B27DE59D80002F098 /* DrawerNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442C53A27DE59D80002F098 /* DrawerNavigationViewModel.swift */; };
 		147B8CF62738886E0080FDCF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B8CF52738886E0080FDCF /* OnboardingView.swift */; };
 		147B8CFC2738A3680080FDCF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B8CFB2738A3680080FDCF /* View.swift */; };
 		147C5CE227DA9E9A00638E51 /* OnboardingLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C5CE127DA9E9A00638E51 /* OnboardingLandingView.swift */; };
@@ -30,22 +33,34 @@
 		1497B27727D97500007A944B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1497B27627D97500007A944B /* GoogleService-Info.plist */; };
 		1497B27927D97845007A944B /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27827D97845007A944B /* TaskListView.swift */; };
 		1497B27B27D978A5007A944B /* TaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27A27D978A5007A944B /* TaskItemView.swift */; };
-		1497B27E27D99787007A944B /* HomeProgressToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27D27D99787007A944B /* HomeProgressToolbarView.swift */; };
-		1497B28027D999DE007A944B /* HomeInfoHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27F27D999DE007A944B /* HomeInfoHelpView.swift */; };
+		1497B27E27D99787007A944B /* StockStudyProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27D27D99787007A944B /* StockStudyProgressView.swift */; };
+		1497B28027D999DE007A944B /* StockStudyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27F27D999DE007A944B /* StockStudyInfoView.swift */; };
 		14B82377272F33CE00F8552A /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82376272F33CE00F8552A /* AppCore.swift */; };
-		14B82379272F33CE00F8552A /* TabNavigationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82378272F33CE00F8552A /* TabNavigationContentView.swift */; };
+		14B82379272F33CE00F8552A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82378272F33CE00F8552A /* ContentView.swift */; };
 		14B8237B272F33CF00F8552A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B8237A272F33CF00F8552A /* Assets.xcassets */; };
 		14B8237E272F33CF00F8552A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B8237D272F33CF00F8552A /* Preview Assets.xcassets */; };
 		14B82387272F3B9900F8552A /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82386272F3B9900F8552A /* TaskDetailView.swift */; };
-		14B82389272F409700F8552A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82388272F409700F8552A /* HomeView.swift */; };
+		14B82389272F409700F8552A /* StockStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82388272F409700F8552A /* StockStudyView.swift */; };
 		14B8238C272F485300F8552A /* TasksModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8238B272F485300F8552A /* TasksModels.swift */; };
 		14B8238E272F487800F8552A /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8238D272F487800F8552A /* TasksViewModel.swift */; };
 		14B82392272F49D800F8552A /* TaskButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82391272F49D800F8552A /* TaskButtonStyle.swift */; };
 		14B82395272F49FC00F8552A /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82394272F49FC00F8552A /* CGFloat.swift */; };
 		14B82397272F4B8000F8552A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B82396272F4B8000F8552A /* SettingsView.swift */; };
+		14CFA56827DE5C6300958E73 /* DrawerNavigationTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFA56727DE5C6300958E73 /* DrawerNavigationTabView.swift */; };
+		14CFA56A27DE686F00958E73 /* UserThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFA56927DE686F00958E73 /* UserThumbnailView.swift */; };
+		14CFA56E27DE857300958E73 /* getStockHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFA56D27DE857200958E73 /* getStockHistory.swift */; };
+		14CFA57027DE921B00958E73 /* PortfolioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFA56F27DE921B00958E73 /* PortfolioListView.swift */; };
+		14CFA57227DE924700958E73 /* PortfolioSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFA57127DE924700958E73 /* PortfolioSummaryView.swift */; };
+		14CFA57427DE92A500958E73 /* PortfolioListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFA57327DE92A500958E73 /* PortfolioListRowView.swift */; };
+		14CFA57727DE92F200958E73 /* PortfolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFA57627DE92F200958E73 /* PortfolioViewModel.swift */; };
+		14CFA57A27DE933300958E73 /* StockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFA57927DE933300958E73 /* StockView.swift */; };
+		14CFA57C27DE954400958E73 /* DrawerNavigationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFA57B27DE954400958E73 /* DrawerNavigationButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1442C53527DE53830002F098 /* PortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioView.swift; sourceTree = "<group>"; };
+		1442C53727DE55FE0002F098 /* DrawerNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerNavigationView.swift; sourceTree = "<group>"; };
+		1442C53A27DE59D80002F098 /* DrawerNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerNavigationViewModel.swift; sourceTree = "<group>"; };
 		147B8CF52738886E0080FDCF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		147B8CFB2738A3680080FDCF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		147C5CE127DA9E9A00638E51 /* OnboardingLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLandingView.swift; sourceTree = "<group>"; };
@@ -65,20 +80,29 @@
 		1497B27627D97500007A944B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1497B27827D97845007A944B /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		1497B27A27D978A5007A944B /* TaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemView.swift; sourceTree = "<group>"; };
-		1497B27D27D99787007A944B /* HomeProgressToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProgressToolbarView.swift; sourceTree = "<group>"; };
-		1497B27F27D999DE007A944B /* HomeInfoHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoHelpView.swift; sourceTree = "<group>"; };
+		1497B27D27D99787007A944B /* StockStudyProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockStudyProgressView.swift; sourceTree = "<group>"; };
+		1497B27F27D999DE007A944B /* StockStudyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockStudyInfoView.swift; sourceTree = "<group>"; };
 		14B82373272F33CE00F8552A /* Borsjakten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Borsjakten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B82376272F33CE00F8552A /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
-		14B82378272F33CE00F8552A /* TabNavigationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationContentView.swift; sourceTree = "<group>"; };
+		14B82378272F33CE00F8552A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		14B8237A272F33CF00F8552A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14B8237D272F33CF00F8552A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		14B82386272F3B9900F8552A /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
-		14B82388272F409700F8552A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		14B82388272F409700F8552A /* StockStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockStudyView.swift; sourceTree = "<group>"; };
 		14B8238B272F485300F8552A /* TasksModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksModels.swift; sourceTree = "<group>"; };
 		14B8238D272F487800F8552A /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
 		14B82391272F49D800F8552A /* TaskButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskButtonStyle.swift; sourceTree = "<group>"; };
 		14B82394272F49FC00F8552A /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		14B82396272F4B8000F8552A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		14CFA56727DE5C6300958E73 /* DrawerNavigationTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerNavigationTabView.swift; sourceTree = "<group>"; };
+		14CFA56927DE686F00958E73 /* UserThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserThumbnailView.swift; sourceTree = "<group>"; };
+		14CFA56D27DE857200958E73 /* getStockHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getStockHistory.swift; sourceTree = "<group>"; };
+		14CFA56F27DE921B00958E73 /* PortfolioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioListView.swift; sourceTree = "<group>"; };
+		14CFA57127DE924700958E73 /* PortfolioSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioSummaryView.swift; sourceTree = "<group>"; };
+		14CFA57327DE92A500958E73 /* PortfolioListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioListRowView.swift; sourceTree = "<group>"; };
+		14CFA57627DE92F200958E73 /* PortfolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewModel.swift; sourceTree = "<group>"; };
+		14CFA57927DE933300958E73 /* StockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockView.swift; sourceTree = "<group>"; };
+		14CFA57B27DE954400958E73 /* DrawerNavigationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerNavigationButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +120,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1442C53427DE53780002F098 /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				14CFA57627DE92F200958E73 /* PortfolioViewModel.swift */,
+				1442C53527DE53830002F098 /* PortfolioView.swift */,
+				14CFA57127DE924700958E73 /* PortfolioSummaryView.swift */,
+				14CFA57527DE92B700958E73 /* PortfolioList */,
+			);
+			path = Portfolio;
+			sourceTree = "<group>";
+		};
+		1442C53927DE56050002F098 /* DrawerNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				1442C53727DE55FE0002F098 /* DrawerNavigationView.swift */,
+				14CFA56727DE5C6300958E73 /* DrawerNavigationTabView.swift */,
+				14CFA57B27DE954400958E73 /* DrawerNavigationButtonView.swift */,
+			);
+			path = DrawerNavigation;
+			sourceTree = "<group>";
+		};
 		147C5CF527DAB73E00638E51 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,10 +152,12 @@
 		14880B6727309701008CC2F5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				1497B26D27D9667B007A944B /* Home */,
-				1497B26F27D96697007A944B /* Settings */,
-				1497B26E27D96690007A944B /* TaskDetail */,
+				1497B26D27D9667B007A944B /* Stock Study */,
 				1497B26C27D96590007A944B /* Onboarding */,
+				1442C53427DE53780002F098 /* Portfolio */,
+				1497B26F27D96697007A944B /* Settings */,
+				14CFA57827DE932B00958E73 /* Stock */,
+				1497B26E27D96690007A944B /* TaskDetail */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -118,6 +165,7 @@
 		14880B6927309746008CC2F5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				14CFA56927DE686F00958E73 /* UserThumbnailView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -170,15 +218,15 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		1497B26D27D9667B007A944B /* Home */ = {
+		1497B26D27D9667B007A944B /* Stock Study */ = {
 			isa = PBXGroup;
 			children = (
-				14B82388272F409700F8552A /* HomeView.swift */,
-				1497B27F27D999DE007A944B /* HomeInfoHelpView.swift */,
-				1497B27D27D99787007A944B /* HomeProgressToolbarView.swift */,
+				14B82388272F409700F8552A /* StockStudyView.swift */,
+				1497B27F27D999DE007A944B /* StockStudyInfoView.swift */,
+				1497B27D27D99787007A944B /* StockStudyProgressView.swift */,
 				1497B27C27D978AA007A944B /* TaskList */,
 			);
-			path = Home;
+			path = "Stock Study";
 			sourceTree = "<group>";
 		};
 		1497B26E27D96690007A944B /* TaskDetail */ = {
@@ -227,6 +275,7 @@
 		14B82375272F33CE00F8552A /* Borsjakten */ = {
 			isa = PBXGroup;
 			children = (
+				14CFA56C27DE854C00958E73 /* API */,
 				1497B27627D97500007A944B /* GoogleService-Info.plist */,
 				14880B7527309C67008CC2F5 /* AppDelegate.swift */,
 				1497B26927D96482007A944B /* Assets */,
@@ -252,6 +301,7 @@
 			children = (
 				1497B26B27D9650C007A944B /* AuthViewModel */,
 				1497B26A27D964BF007A944B /* TasksViewModel */,
+				14CFA56B27DE7D6C00958E73 /* DrawerNavigationViewModel */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -260,8 +310,9 @@
 			isa = PBXGroup;
 			children = (
 				14B82376272F33CE00F8552A /* AppCore.swift */,
-				14B82378272F33CE00F8552A /* TabNavigationContentView.swift */,
+				14B82378272F33CE00F8552A /* ContentView.swift */,
 				14880B6927309746008CC2F5 /* Components */,
+				1442C53927DE56050002F098 /* DrawerNavigation */,
 				14880B6727309701008CC2F5 /* Screens */,
 			);
 			path = Core;
@@ -277,6 +328,39 @@
 				147C5CF827DACC6200638E51 /* UIApplication.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		14CFA56B27DE7D6C00958E73 /* DrawerNavigationViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1442C53A27DE59D80002F098 /* DrawerNavigationViewModel.swift */,
+			);
+			path = DrawerNavigationViewModel;
+			sourceTree = "<group>";
+		};
+		14CFA56C27DE854C00958E73 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				14CFA56D27DE857200958E73 /* getStockHistory.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		14CFA57527DE92B700958E73 /* PortfolioList */ = {
+			isa = PBXGroup;
+			children = (
+				14CFA56F27DE921B00958E73 /* PortfolioListView.swift */,
+				14CFA57327DE92A500958E73 /* PortfolioListRowView.swift */,
+			);
+			path = PortfolioList;
+			sourceTree = "<group>";
+		};
+		14CFA57827DE932B00958E73 /* Stock */ = {
+			isa = PBXGroup;
+			children = (
+				14CFA57927DE933300958E73 /* StockView.swift */,
+			);
+			path = Stock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,7 +445,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				147C5CEE27DAA78600638E51 /* OnboardingPasswordView.swift in Sources */,
+				1442C53627DE53830002F098 /* PortfolioView.swift in Sources */,
+				14CFA56A27DE686F00958E73 /* UserThumbnailView.swift in Sources */,
 				14880B7627309C67008CC2F5 /* AppDelegate.swift in Sources */,
+				14CFA57227DE924700958E73 /* PortfolioSummaryView.swift in Sources */,
+				14CFA57C27DE954400958E73 /* DrawerNavigationButtonView.swift in Sources */,
 				147C5CF027DAAF8500638E51 /* OnboardingTextFieldStyle.swift in Sources */,
 				147C5CF227DAB00000638E51 /* ViewModifier.swift in Sources */,
 				147C5CE227DA9E9A00638E51 /* OnboardingLandingView.swift in Sources */,
@@ -372,23 +460,31 @@
 				1497B27B27D978A5007A944B /* TaskItemView.swift in Sources */,
 				14B82397272F4B8000F8552A /* SettingsView.swift in Sources */,
 				14B8238C272F485300F8552A /* TasksModels.swift in Sources */,
+				1442C53827DE55FE0002F098 /* DrawerNavigationView.swift in Sources */,
 				147C5CF427DAB36300638E51 /* AuthViewModel.swift in Sources */,
+				14CFA57727DE92F200958E73 /* PortfolioViewModel.swift in Sources */,
 				14B82392272F49D800F8552A /* TaskButtonStyle.swift in Sources */,
-				14B82379272F33CE00F8552A /* TabNavigationContentView.swift in Sources */,
+				14B82379272F33CE00F8552A /* ContentView.swift in Sources */,
 				14880B7C2730AC51008CC2F5 /* AuthViewModelOld.swift in Sources */,
-				1497B28027D999DE007A944B /* HomeInfoHelpView.swift in Sources */,
+				1497B28027D999DE007A944B /* StockStudyInfoView.swift in Sources */,
 				147C5CE827DAA2B400638E51 /* OnboardingScreenView.swift in Sources */,
-				1497B27E27D99787007A944B /* HomeProgressToolbarView.swift in Sources */,
+				1497B27E27D99787007A944B /* StockStudyProgressView.swift in Sources */,
 				147C5CEC27DAA77B00638E51 /* OnboardingEmailView.swift in Sources */,
+				14CFA57A27DE933300958E73 /* StockView.swift in Sources */,
 				1497B27927D97845007A944B /* TaskListView.swift in Sources */,
 				147C5CE427DA9F3D00638E51 /* AnyTransition.swift in Sources */,
 				147B8CFC2738A3680080FDCF /* View.swift in Sources */,
 				147C5CF927DACC6200638E51 /* UIApplication.swift in Sources */,
+				14CFA56827DE5C6300958E73 /* DrawerNavigationTabView.swift in Sources */,
 				147C5CE627DAA27000638E51 /* OnboardingUsernameView.swift in Sources */,
 				147B8CF62738886E0080FDCF /* OnboardingView.swift in Sources */,
-				14B82389272F409700F8552A /* HomeView.swift in Sources */,
+				1442C53B27DE59D80002F098 /* DrawerNavigationViewModel.swift in Sources */,
+				14CFA56E27DE857300958E73 /* getStockHistory.swift in Sources */,
+				14B82389272F409700F8552A /* StockStudyView.swift in Sources */,
+				14CFA57427DE92A500958E73 /* PortfolioListRowView.swift in Sources */,
 				147C5CF727DAB74900638E51 /* Validations.swift in Sources */,
 				14B82377272F33CE00F8552A /* AppCore.swift in Sources */,
+				14CFA57027DE921B00958E73 /* PortfolioListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

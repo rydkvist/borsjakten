@@ -6,17 +6,19 @@ struct AppCore: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var authVM = AuthViewModel()
     @StateObject private var tasksVM = TasksViewModel()
+    @StateObject private var drawerNavigationVM = DrawerNavigationViewModel()
 
     var body: some Scene {
         WindowGroup {
             ZStack {
-                TabNavigationContentView()
-                    .onDisappear(perform: authVM.removeAuthState)
+                ContentView()
                     .environmentObject(authVM)
                     .environmentObject(tasksVM)
-                    .task {
-                        authVM.setAuthState()
-                    }
+                    .environmentObject(drawerNavigationVM)
+                    .onDisappear(perform: authVM.removeAuthState)
+                    .task { authVM.setAuthState() }
+
+                // TODO: Add LaunchScreen
             }
         }
     }

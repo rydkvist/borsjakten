@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct HomeInfoHelpView: View {
+struct StockStudyInfoView: View {
     var body: some View {
         VStack(spacing: 16) {
             Divider()
@@ -16,8 +16,8 @@ struct HomeInfoHelpView: View {
     }
 }
 
-struct HomeInfoHelpView_Previews: PreviewProvider {
+struct StockStudyInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeInfoHelpView()
+        StockStudyInfoView()
     }
 }

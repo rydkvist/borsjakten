@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct HomeProgressToolbarView: View {
+struct StockStudyProgressView: View {
     var completedTasks: Int
     var amountOfTasks: Int
 
@@ -10,11 +10,11 @@ struct HomeProgressToolbarView: View {
         } else if completedTasks >= 20 {
             return "Clerk"
         } else if completedTasks >= 10 {
-            return "Investera"
+            return "Investor"
         } else if completedTasks >= 3 {
-            return "Sparare"
+            return "Saver"
         } else {
-            return "Nybörjare"
+            return "Beginner"
         }
     }
 
@@ -50,8 +50,8 @@ struct HomeProgressToolbarView: View {
     }
 }
 
-struct HomeProgressToolbarView_Previews: PreviewProvider {
+struct StockStudyProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeProgressToolbarView(completedTasks: 4, amountOfTasks: 25)
+        StockStudyProgressView(completedTasks: 4, amountOfTasks: 25)
     }
 }

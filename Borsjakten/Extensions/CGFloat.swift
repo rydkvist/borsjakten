@@ -7,4 +7,6 @@ public extension CGFloat {
     static let listInset: CGFloat = 128
 
     static let screenHeight: CGFloat = UIScreen.main.bounds.height
+    static let screenWidth: CGFloat = UIScreen.main.bounds.width
+    static let drawerNavigationWidth: CGFloat = 250
 }

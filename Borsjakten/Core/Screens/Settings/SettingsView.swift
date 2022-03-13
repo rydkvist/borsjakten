@@ -17,20 +17,28 @@ struct SettingsView: View {
     }
 
     var body: some View {
-        List {
-            Section("Account") {
-                TextField("Name", text: $displayName)
-                    .modifier(UsernameFieldModifiers())
+        NavigationView {
+            List {
+                Section("Account") {
+                    TextField("Name", text: $displayName)
+                        .modifier(UsernameFieldModifiers())
 
-                TextField("E-mail", text: $email)
-                    .modifier(EmailFieldModifiers())
+                    TextField("E-mail", text: $email)
+                        .modifier(EmailFieldModifiers())
+                }
+
+                Section("Other") {
+                    Button("Logout", role: .destructive, action: { Task { await authVM.signOut() }})
+                }
             }
-
-            Section("Other") {
-                Button("Logout", role: .destructive, action: { Task { await authVM.signOut() }})
+            .onAppear(perform: setFieldValues)
+            .navigationTitle(DrawerScreens.settings.rawValue)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    DrawerNavigationButtonView()
+                }
             }
         }
-        .onAppear(perform: setFieldValues)
     }
 }
 

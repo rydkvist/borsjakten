@@ -2,18 +2,29 @@ import SwiftUI
 
 struct TaskItemView: View {
     var task: TaskResponse
+    var isHidden: Bool = false
 
     private var direction: TaskDirection {
         if task.placement == 1 {
             return .up
         } else if task.placement == 2 {
             return .right
-        } else if task.placement % 3 == 0 {
+        } else if task.placement == 3 {
             return .up
-        } else if task.placement % 3 == 1 {
+        } else if task.placement == 4 {
             return .left
+        } else if task.placement == 5 {
+            return .left
+        } else if task.placement == 6 {
+            return .up
+        } else if task.placement == 7 {
+            return .right
+        } else if task.placement == 8 {
+            return .right
+        } else if task.placement == 9 {
+            return .up
         } else {
-            return .left
+            return .up
         }
     }
 
@@ -76,17 +87,17 @@ struct TaskItemView: View {
     }
 
     var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(rectangleColor)
-                .frame(width: rectangleSize.width, height: rectangleSize.height)
-                .offset(rectangleOffset)
+        NavigationLink(destination: TaskDetailView(task: task)) {
 
-            NavigationLink(destination: TaskDetailView(task: task)) {
+            ZStack {
+                Rectangle()
+                    .fill(rectangleColor)
+                    .frame(width: rectangleSize.width, height: rectangleSize.height)
+                    .offset(rectangleOffset)
+
                 ZStack {
                     Circle()
                         .fill(circleBackgroundColor)
-                        .frame(width: .minButtonSize, height: .minButtonSize)
 
                     Circle()
                         .strokeBorder(circleBorderColor, lineWidth: 4, antialiased: false)
@@ -103,32 +114,33 @@ struct TaskItemView: View {
                             .rotationEffect(.degrees(25))
                     }
                 }
+                .frame(width: .minButtonSize, height: .minButtonSize)
                 .font(.body)
-            }
-            .buttonStyle(.plain)
-        }
-        .padding(.top, .taskDirectionHeight)
-    }
-}
 
-enum TaskDirection: String {
-    case up
-    case right
-    case left
+            }
+        }
+        .buttonStyle(.plain)
+        .padding(.top, .taskDirectionHeight)
+        .padding(.leading, direction == .left ? .taskDirectionWidth * 2 : 0)
+        .padding(.trailing, direction == .right ? .taskDirectionWidth * 2 : 0)
+        .opacity(isHidden ? 0 : 1)
+        .allowsHitTesting(!isHidden)
+    }
 }
 
 struct TaskItemView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack {
-                TaskItemView(task: .mockedTask(placement: 5))
-                TaskItemView(task: .mockedTask(placement: 6))
+                TaskItemView(task: .mockedTask(placement: 9))
+                TaskItemView(task: .mockedTask(placement: 8))
                 TaskItemView(task: .mockedTask(placement: 7))
             }
+
             HStack {
+                TaskItemView(task: .mockedTask(placement: 6))
+                TaskItemView(task: .mockedTask(placement: 5))
                 TaskItemView(task: .mockedTask(placement: 4))
-                TaskItemView(task: .mockedTask(placement: 3))
-                TaskItemView(task: .mockedTask(placement: 2))
             }
         }
     }

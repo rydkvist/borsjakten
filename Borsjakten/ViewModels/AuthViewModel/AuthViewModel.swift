@@ -11,6 +11,8 @@ class AuthViewModel: ObservableObject {
     @Published var authErrorMessage: String?
     @AppStorage("shouldShowOnboarding") var shouldShowOnboarding: Bool = true
 
+    var imageURL = "https://picsum.photos/200"
+
     @State private var handle: AuthStateDidChangeListenerHandle?
 
     @MainActor
