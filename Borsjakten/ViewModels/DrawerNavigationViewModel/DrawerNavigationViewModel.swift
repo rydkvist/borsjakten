@@ -6,10 +6,7 @@ class DrawerNavigationViewModel: ObservableObject {
     @Published private(set) var isDrawerOpen = false
 
     func setSelected(screen: DrawerScreens) {
-        withAnimation(.spring()) {
-            selectedScreen = screen
-        }
-        
+        selectedScreen = screen
         toggleDrawer()
     }
 

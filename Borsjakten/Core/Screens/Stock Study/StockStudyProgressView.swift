@@ -27,6 +27,7 @@ struct StockStudyProgressView: View {
             HStack {
                 Text(rankName)
                     .foregroundColor(.primary)
+                    .fontWeight(.semibold)
 
                 Spacer()
 
@@ -39,11 +40,11 @@ struct StockStudyProgressView: View {
             ProgressView(value: CGFloat(completedTasks), total: CGFloat(amountOfTasks))
                 .animation(.linear, value: completedTasks)
                 .progressViewStyle(.linear)
-                .tint(.blue)
+                .tint(.accentColor)
         }
         .frame(maxWidth: .infinity)
         .padding()
-        .background(Color.white)
+        .background(.thinMaterial)
         .cornerRadius(16)
         .shadow(radius: 4)
         .padding(.horizontal, 24)
@@ -52,6 +53,10 @@ struct StockStudyProgressView: View {
 
 struct StockStudyProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        StockStudyProgressView(completedTasks: 4, amountOfTasks: 25)
+        VStack {
+            StockStudyProgressView(completedTasks: 4, amountOfTasks: 25)
+        }
+        .frame(width: .screenWidth, height: .screenHeight)
+        .preferredColorScheme(.dark)
     }
 }

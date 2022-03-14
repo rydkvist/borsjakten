@@ -1,7 +1,7 @@
 import SwiftUI
 
 class TasksViewModel: ObservableObject {
-    @Published var tasks: [TaskResponse] = mockedTasks
+    @AppStorage("tasks") var tasks: [TaskResponse] = mockedTasks
     @Published var amountOfCompletedTasks: Int = 0
 
     func updateCompletedTasks() {
@@ -41,11 +41,11 @@ class TasksViewModel: ObservableObject {
 }
 
 var mockedTasks: [TaskResponse] = [
-    .mockedTask(placement: 1, status: .completed, title: "Börsen"),
-    .mockedTask(placement: 2, status: .active, title: "CSN"),
+    .mockedTask(placement: 1, status: .active, title: "Börsen"),
+    .mockedTask(placement: 2, title: "CSN"),
     .mockedTask(placement: 3, title: "Bostäder"),
     .mockedTask(placement: 4, title: "Crypto valutor"),
-    .mockedTask(placement: 5),
+    .mockedTask(placement: 5, title: "Bolån"),
     .mockedTask(placement: 6),
     .mockedTask(placement: 7),
     .mockedTask(placement: 8),

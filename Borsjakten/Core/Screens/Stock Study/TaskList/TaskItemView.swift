@@ -86,37 +86,46 @@ struct TaskItemView: View {
         }
     }
 
-    var body: some View {
-        NavigationLink(destination: TaskDetailView(task: task)) {
+    private var content: some View {
+        ZStack {
+            Rectangle()
+                .fill(rectangleColor)
+                .frame(width: rectangleSize.width, height: rectangleSize.height)
+                .offset(rectangleOffset)
 
             ZStack {
-                Rectangle()
-                    .fill(rectangleColor)
-                    .frame(width: rectangleSize.width, height: rectangleSize.height)
-                    .offset(rectangleOffset)
+                Circle()
+                    .fill(circleBackgroundColor)
 
-                ZStack {
-                    Circle()
-                        .fill(circleBackgroundColor)
+                Circle()
+                    .strokeBorder(circleBorderColor, lineWidth: 4, antialiased: false)
 
-                    Circle()
-                        .strokeBorder(circleBorderColor, lineWidth: 4, antialiased: false)
-
-                    if task.status == .completed {
-                        Image(systemName: "checkmark")
-                            .foregroundColor(.white)
-                    } else if task.status == .active {
-                        Image(systemName: "play.fill")
-                            .foregroundColor(.blue)
-                    } else if task.status == .locked {
-                        Image(systemName: "lock.fill")
-                            .foregroundColor(.gray)
-                            .rotationEffect(.degrees(25))
-                    }
+                if task.status == .completed {
+                    Image(systemName: "checkmark")
+                        .foregroundColor(.white)
+                } else if task.status == .active {
+                    Image(systemName: "play.fill")
+                        .foregroundColor(.blue)
+                } else if task.status == .locked {
+                    Image(systemName: "lock.fill")
+                        .foregroundColor(.gray)
+                        .rotationEffect(.degrees(25))
                 }
-                .frame(width: .minButtonSize, height: .minButtonSize)
-                .font(.body)
+            }
+            .frame(width: .minButtonSize, height: .minButtonSize)
+            .font(.body)
 
+        }
+    }
+
+    var body: some View {
+        Group {
+            if task.status == .locked {
+                content
+            } else {
+                NavigationLink(destination: TaskView(task: task)) {
+                    content
+                }
             }
         }
         .buttonStyle(.plain)

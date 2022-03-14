@@ -2,16 +2,25 @@ import SwiftUI
 import Foundation
 
 struct PortfolioView: View {
-    @StateObject private var portfolioVM = PortfolioViewModel()
-    
+    @EnvironmentObject private var portfolioVM: PortfolioViewModel
+
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 24) {
-                    PortfolioSummaryView(portfolioVM: portfolioVM)
-                    PortfolioListView(portfolioVM: portfolioVM)
+                    VStack(alignment: .leading, spacing: 16) {
+                        PortfolioSummaryView()
+                        PortfolioBalanceControlsView()
+                    }
+                    .padding(.horizontal)
+
+                    if !portfolioVM.myStocks.isEmpty {
+                        PortfolioListView(isMyStocks: true)
+                    }
+
+                    PortfolioListView(isMyStocks: false)
                 }
-                .padding(.horizontal, 16)
+                .animation(.spring(), value: portfolioVM.myStocks.isEmpty)
             }
             .navigationTitle(DrawerScreens.portfolio.rawValue)
             .ignoresSafeArea(.all, edges: .bottom)

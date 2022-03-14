@@ -11,6 +11,7 @@ struct UserThumbnailView: View {
             ProgressView()
         }
         .frame(width: size, height: size)
+        .aspectRatio(contentMode: .fit)
         .background(Color.black)
         .clipShape(Circle())
     }

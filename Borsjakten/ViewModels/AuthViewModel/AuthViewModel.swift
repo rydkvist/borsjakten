@@ -11,7 +11,7 @@ class AuthViewModel: ObservableObject {
     @Published var authErrorMessage: String?
     @AppStorage("shouldShowOnboarding") var shouldShowOnboarding: Bool = true
 
-    var imageURL = "https://picsum.photos/200"
+    @AppStorage("storedProfileImageURL") var imageURL = "https://www.rydkvist.com/_next/image?url=%2Fimages%2FNiklasVaxholm.png&w=3840&q=75"
 
     @State private var handle: AuthStateDidChangeListenerHandle?
 
@@ -129,6 +129,8 @@ class AuthViewModel: ObservableObject {
     }
 
     func removeAuthState() {
-        Auth.auth().removeStateDidChangeListener(handle!)
+        if handle != nil {
+            Auth.auth().removeStateDidChangeListener(handle!)
+        }
     }
 }

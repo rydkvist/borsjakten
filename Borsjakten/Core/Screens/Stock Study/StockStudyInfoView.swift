@@ -6,7 +6,7 @@ struct StockStudyInfoView: View {
             Divider()
                 .padding(.horizontal, 16)
 
-            Text("Genom enkla, lärorika och roliga nivåer kommer du att lära dig allt du behöver för att göra ditt bästa på börsen.")
+            Text("Through simple, educational and fun levels, you will learn everything you need to do your best on the stock market.")
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 24)
                 .font(.body)

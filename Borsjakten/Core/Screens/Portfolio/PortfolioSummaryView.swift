@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PortfolioSummaryView: View {
-    @ObservedObject var portfolioVM: PortfolioViewModel
+    @EnvironmentObject private var portfolioVM: PortfolioViewModel
     
     var body: some View {
         HStack(spacing: 8) {
@@ -26,6 +26,6 @@ struct PortfolioSummaryView: View {
 
 struct PortfolioSummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        PortfolioSummaryView(portfolioVM: PortfolioViewModel())
+        PortfolioSummaryView()
     }
 }

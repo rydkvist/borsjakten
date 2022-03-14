@@ -1,25 +1,40 @@
 import SwiftUI
 
 struct PortfolioListView: View {
-    @ObservedObject var portfolioVM: PortfolioViewModel
+    @EnvironmentObject private var portfolioVM: PortfolioViewModel
+    var isMyStocks = false
 
     var body: some View {
-        LazyVStack(alignment: .leading, spacing: 20) {
-            Text("Watchlist")
+        VStack(alignment: .leading, spacing: 4) {
+            Text(isMyStocks ? "My Stocks" : "Trending Stocks")
                 .font(.title3)
                 .fontWeight(.semibold)
+                .padding(.horizontal)
 
-            ForEach(portfolioVM.stocks) { stock in
-                NavigationLink(destination: StockView(stock: stock)) {
-                    PortfolioListRowView(item: stock)
+            LazyVStack(alignment: .leading, spacing: 0) {
+                if isMyStocks {
+                    ForEach(portfolioVM.myStocks) { myStock in
+                        NavigationLink(destination: StockView(stock: myStock.stock)) {
+                            PortfolioListRowView(item: myStock.stock)
+                        }
+                    }
+                } else {
+                    ForEach(portfolioVM.trendingStocks) { stock in
+                        NavigationLink(destination: StockView(stock: stock)) {
+                            PortfolioListRowView(item: stock)
+                        }
+                    }
                 }
             }
+            .cornerRadius(12)
+            .animation(.spring(), value: portfolioVM.myStocks)
+            .animation(.spring(), value: portfolioVM.trendingStocks)
         }
     }
 }
 
 struct PortfolioListView_Previews: PreviewProvider {
     static var previews: some View {
-        PortfolioListView(portfolioVM: PortfolioViewModel())
+        PortfolioListView()
     }
 }

@@ -10,9 +10,8 @@ struct TaskListView: View {
     ]
     
     var body: some View {
-
         LazyVGrid(columns: gridColumns, alignment: .center, spacing: 0) {
-            ForEach(tasksVM.tasks.reversed()) { task in
+            ForEach(tasksVM.tasks) { task in
                 TaskItemView(task: task)
             }
         }

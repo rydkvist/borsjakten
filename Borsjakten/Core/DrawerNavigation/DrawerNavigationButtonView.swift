@@ -10,6 +10,7 @@ struct DrawerNavigationButtonView: View {
                 UserThumbnailView(size: 32, url: url)
             }
         }
+        .id(authVM.imageURL)
     }
 }
 
