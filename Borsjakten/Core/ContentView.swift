@@ -17,31 +17,33 @@ struct ContentView: View {
     }
 
     var body: some View {
-        HStack(spacing: 0) {
-            DrawerNavigationView()
+        GeometryReader { reader in
+            HStack(spacing: 0) {
+                DrawerNavigationView()
 
-            TabView(selection: $drawerNavigationVM.selectedScreen) {
-                PortfolioView()
-                    .tag(DrawerScreens.portfolio)
+                TabView(selection: $drawerNavigationVM.selectedScreen) {
+                    PortfolioView()
+                        .tag(DrawerScreens.portfolio)
 
-                StockStudyView()
-                    .tag(DrawerScreens.stockStudy)
-                
-                SettingsView()
-                    .tag(DrawerScreens.settings)
+                    StockStudyView()
+                        .tag(DrawerScreens.stockStudy)
+
+                    SettingsView()
+                        .tag(DrawerScreens.settings)
+                }
+                .frame(width: reader.size.width)
+                .overlay {
+                    Color.black
+                        .ignoresSafeArea()
+                        .opacity(drawerNavigationVM.isDrawerOpen ? 0.7 : 0)
+                        .allowsHitTesting(drawerNavigationVM.isDrawerOpen)
+                        .onTapGesture(perform: drawerNavigationVM.toggleDrawer)
+                }
             }
-            .frame(width: .screenWidth)
-            .overlay {
-                Color.black
-                    .ignoresSafeArea()
-                    .opacity(drawerNavigationVM.isDrawerOpen ? 0.7 : 0)
-                    .allowsHitTesting(drawerNavigationVM.isDrawerOpen)
-                    .onTapGesture(perform: drawerNavigationVM.toggleDrawer)
-            }
+            .frame(width: reader.size.width)
+            .offset(x: drawerXOffset)
+            .fullScreenCover(isPresented: $authVM.shouldShowOnboarding, content: { OnboardingView() })
         }
-        .frame(width: .screenWidth)
-        .offset(x: drawerXOffset)
-        .fullScreenCover(isPresented: $authVM.shouldShowOnboarding, content: { OnboardingView() })
     }
 }
 
