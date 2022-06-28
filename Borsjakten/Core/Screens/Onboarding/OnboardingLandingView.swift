@@ -19,9 +19,10 @@ struct OnboardingLandingView: View {
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
 
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget viverra tellus. Vestibulum suscipit elementum lacinia.")
+            Text("A personal finance where you can learn the main concepts of saving and investing.")
                 .fontWeight(.medium)
                 .foregroundColor(.white)
+                .multilineTextAlignment(.center)
         }
         .onAppear(perform: { UIApplication.shared.endEditing() })
         .onAppear(perform: { scale = 1.2 })
