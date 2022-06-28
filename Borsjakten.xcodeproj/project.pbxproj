@@ -29,6 +29,7 @@
 		14880B7227309C1A008CC2F5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 14880B7127309C1A008CC2F5 /* FirebaseFirestore */; };
 		14880B7427309C1A008CC2F5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 14880B7327309C1A008CC2F5 /* FirebaseStorage */; };
 		14880B7627309C67008CC2F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14880B7527309C67008CC2F5 /* AppDelegate.swift */; };
+		14973B59286B9770002038A5 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14973B58286B9770002038A5 /* GraphView.swift */; };
 		1497B27727D97500007A944B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1497B27627D97500007A944B /* GoogleService-Info.plist */; };
 		1497B27927D97845007A944B /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27827D97845007A944B /* TaskListView.swift */; };
 		1497B27B27D978A5007A944B /* TaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497B27A27D978A5007A944B /* TaskItemView.swift */; };
@@ -78,6 +79,7 @@
 		147C5CF627DAB74900638E51 /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		147C5CF827DACC6200638E51 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		14880B7527309C67008CC2F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		14973B58286B9770002038A5 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		1497B27627D97500007A944B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1497B27827D97845007A944B /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		1497B27A27D978A5007A944B /* TaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				14CFA56927DE686F00958E73 /* UserThumbnailView.swift */,
+				14973B58286B9770002038A5 /* GraphView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				147C5CEE27DAA78600638E51 /* OnboardingPasswordView.swift in Sources */,
 				14CFA58027DEBB0000958E73 /* Helpers.swift in Sources */,
 				1442C53627DE53830002F098 /* PortfolioView.swift in Sources */,
+				14973B59286B9770002038A5 /* GraphView.swift in Sources */,
 				14CFA56A27DE686F00958E73 /* UserThumbnailView.swift in Sources */,
 				14880B7627309C67008CC2F5 /* AppDelegate.swift in Sources */,
 				14CFA57227DE924700958E73 /* PortfolioSummaryView.swift in Sources */,

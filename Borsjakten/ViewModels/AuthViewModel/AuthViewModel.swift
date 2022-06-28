@@ -11,7 +11,7 @@ class AuthViewModel: ObservableObject {
     @Published var authErrorMessage: String?
     @AppStorage("shouldShowOnboarding") var shouldShowOnboarding: Bool = true
 
-    @AppStorage("storedProfileImageURL") var imageURL = "https://www.rydkvist.com/_next/image?url=%2Fimages%2FNiklasVaxholm.png&w=3840&q=75"
+    @AppStorage("storedProfileImageURL") var imageURL = ""
 
     @State private var handle: AuthStateDidChangeListenerHandle?
 

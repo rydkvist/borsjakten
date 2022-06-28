@@ -25,7 +25,7 @@ struct PortfolioListRowView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
 
-            Text("GRAPH")
+//            GraphView()
 
             VStack(alignment: .trailing, spacing: 4) {
                 Text(getTextFor(stockPrice: item.price))

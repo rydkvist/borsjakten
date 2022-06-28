@@ -88,10 +88,10 @@ struct TaskItemView: View {
 
     private var content: some View {
         ZStack {
-            Rectangle()
-                .fill(rectangleColor)
-                .frame(width: rectangleSize.width, height: rectangleSize.height)
-                .offset(rectangleOffset)
+//            Rectangle()
+//                .fill(rectangleColor)
+//                .frame(width: rectangleSize.width, height: rectangleSize.height)
+//                .offset(rectangleOffset)
 
             ZStack {
                 Circle()
@@ -107,14 +107,14 @@ struct TaskItemView: View {
                     Image(systemName: "play.fill")
                         .foregroundColor(.blue)
                 } else if task.status == .locked {
-                    Image(systemName: "lock.fill")
+                    Text("\(task.placement)")
+//                    Image(systemName: "lock.fill")
                         .foregroundColor(.gray)
-                        .rotationEffect(.degrees(25))
+//                        .rotationEffect(.degrees(25))
                 }
             }
             .frame(width: .minButtonSize, height: .minButtonSize)
             .font(.body)
-
         }
     }
 
@@ -130,8 +130,8 @@ struct TaskItemView: View {
         }
         .buttonStyle(.plain)
         .padding(.top, .taskDirectionHeight)
-        .padding(.leading, direction == .left ? .taskDirectionWidth * 2 : 0)
-        .padding(.trailing, direction == .right ? .taskDirectionWidth * 2 : 0)
+//        .padding(.leading, direction == .left ? .taskDirectionWidth * 2 : 0)
+//        .padding(.trailing, direction == .right ? .taskDirectionWidth * 2 : 0)
         .opacity(isHidden ? 0 : 1)
         .allowsHitTesting(!isHidden)
     }

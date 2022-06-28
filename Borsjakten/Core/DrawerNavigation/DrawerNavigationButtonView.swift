@@ -3,12 +3,10 @@ import SwiftUI
 struct DrawerNavigationButtonView: View {
     @EnvironmentObject private var drawerNavigationVM: DrawerNavigationViewModel
     @EnvironmentObject private var authVM: AuthViewModel
-
+    
     var body: some View {
         Button(action: drawerNavigationVM.toggleDrawer) {
-            if let url = URL(string: authVM.imageURL) {
-                UserThumbnailView(size: 32, url: url)
-            }
+            UserThumbnailView(size: 32, urlString: authVM.imageURL)
         }
         .id(authVM.imageURL)
     }

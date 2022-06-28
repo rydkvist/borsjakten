@@ -19,7 +19,7 @@ struct PortfolioSummaryView: View {
 
             Spacer()
 
-            Text("GRAPH")
+//            GraphView()
         }
     }
 }
