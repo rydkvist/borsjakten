@@ -1,6 +1,6 @@
 # Börsjakten
 
-A Swedish Personal Finance mobile app where one can learn the main concepts of investing and personal finance, such as the Stock Market, Real Estate, Cryptocurrencies, Savings, and Bank Loans. Included with a Stock Market sandbox where you can buy and sells stocks with fictional money.
+Embark on a financial journey with Börsjakten, a personal finance mobile app designed to educate and entertain. Explore the world of investing and personal finance, from the stock market to real estate and everything in between, all while playing in a stock market sandbox with virtual funds. Built with Swift and SwiftUI, Börsjakten is the perfect tool for anyone looking to take control of their financial future.
 
 <img src="screenshots.png" />
 
